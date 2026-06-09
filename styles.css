@@ -349,7 +349,111 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; text-align: center
 .faq-answer { max-height: 0; overflow: hidden; transition: max-height var(--transition-slow), padding var(--transition-slow); }
 .faq-item.active .faq-answer { max-height: 300px; }
 .faq-answer-inner { padding: 0 1.5rem 1.25rem; color: var(--text-muted); line-height: 1.7; font-size: 0.95rem; }
-.contact-section { max-width: 600px; margin: 0 auto; padding: 0 1rem; }
+/* ── Contact Section Premium ── */
+#contact {
+    position: relative; min-height: calc(100vh - 80px); display: flex; align-items: center;
+    justify-content: center; overflow: hidden; padding: 2rem; scroll-margin-top: 80px;
+}
+.contact-aurora {
+    position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    width: 800px; height: 800px; z-index: 0; pointer-events: none;
+    background: radial-gradient(circle, rgba(0,255,136,0.13) 0%, rgba(0,200,255,0.07) 40%, transparent 70%);
+    filter: blur(80px); animation: aurora-pulse 8s ease-in-out infinite;
+}
+@keyframes aurora-pulse {
+    0%, 100% { transform: translate(-50%, -50%) scale(1); opacity: 0.6; }
+    50% { transform: translate(-50%, -50%) scale(1.2); opacity: 1; }
+}
+.contact-card {
+    position: relative; z-index: 10; max-width: 700px; width: 100%;
+    padding: 3px; border-radius: 24px;
+    background: linear-gradient(135deg, #00ff88, #00d4ff, #00ff88, #00d4ff);
+    background-size: 300% 300%; animation: border-glow 4s ease infinite;
+    box-shadow: 0 0 60px rgba(0,255,136,0.15), 0 0 120px rgba(0,200,255,0.05);
+}
+@keyframes border-glow {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+.contact-content {
+    background: rgba(10,10,15,0.96); backdrop-filter: blur(20px);
+    border-radius: 22px; padding: 4rem 2.5rem; text-align: center;
+    position: relative; overflow: hidden;
+}
+.contact-badge {
+    display: inline-flex; align-items: center; gap: 0.5rem;
+    padding: 0.4rem 1rem; border-radius: 50px;
+    background: rgba(0,255,136,0.1); border: 1px solid rgba(0,255,136,0.3);
+    color: #00ff88; font-size: 0.7rem; font-weight: 700;
+    letter-spacing: 0.2em; text-transform: uppercase; margin-bottom: 1rem;
+}
+.contact-title {
+    font-size: clamp(1.6rem, 4vw, 2.6rem); font-weight: 800; color: #fff;
+    line-height: 1.1; margin-bottom: 1rem; letter-spacing: -0.02em;
+}
+.gradient-text {
+    background: linear-gradient(135deg, #00ff88, #00d4ff, #00ff88);
+    background-size: 200% auto; -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; background-clip: text;
+    animation: gradient-shift 3s ease infinite;
+}
+@keyframes gradient-shift {
+    0% { background-position: 0% center; }
+    50% { background-position: 100% center; }
+    100% { background-position: 0% center; }
+}
+.contact-subtitle {
+    font-size: 0.95rem; color: rgba(255,255,255,0.6); line-height: 1.6;
+    max-width: 500px; margin: 0 auto 1.5rem;
+}
+.whatsapp-btn {
+    position: relative; display: inline-flex; align-items: center; justify-content: center;
+    padding: 1.2rem 2.5rem; background: linear-gradient(135deg, #25d366, #128c7e);
+    border-radius: 50px; color: #fff; font-size: 1rem; font-weight: 700;
+    text-decoration: none; letter-spacing: 0.05em; cursor: pointer; overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    animation: btn-pulse 2s ease-in-out infinite;
+}
+@keyframes btn-pulse {
+    0%, 100% { box-shadow: 0 10px 40px rgba(37,211,102,0.4), 0 0 0 0 rgba(37,211,102,0.4); }
+    50% { box-shadow: 0 10px 40px rgba(37,211,102,0.6), 0 0 0 15px rgba(37,211,102,0); }
+}
+.whatsapp-btn:hover { transform: translateY(-3px) scale(1.02); box-shadow: 0 20px 60px rgba(37,211,102,0.6); }
+.whatsapp-btn:active { transform: translateY(-1px) scale(0.98); }
+.btn-content { display: flex; align-items: center; gap: 0.75rem; position: relative; z-index: 2; }
+.whatsapp-icon { width: 24px; height: 24px; flex-shrink: 0; animation: icon-bounce 2s ease-in-out infinite; }
+@keyframes icon-bounce {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-3px); }
+}
+.btn-shine {
+    position: absolute; top: 0; left: -100%; width: 100%; height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+    transition: left 0.5s ease; z-index: 1;
+}
+.whatsapp-btn:hover .btn-shine { left: 100%; }
+.trust-badges { display: flex; justify-content: center; gap: 1rem; margin-top: 1.5rem; flex-wrap: wrap; }
+.trust-badge {
+    display: flex; align-items: center; gap: 0.5rem; padding: 0.6rem 1rem;
+    background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.08);
+    border-radius: 50px; color: rgba(255,255,255,0.7); font-size: 0.85rem; transition: all 0.3s ease;
+}
+.trust-badge:hover {
+    background: rgba(0,255,136,0.1); border-color: rgba(0,255,136,0.3);
+    color: #fff; transform: translateY(-2px);
+}
+.trust-badge svg { width: 16px; height: 16px; color: #00ff88; flex-shrink: 0; }
+.trust-badge strong { color: #fff; font-weight: 600; }
+@media (max-width: 640px) {
+    .contact-content { padding: 2rem 1.25rem; }
+    .contact-title { font-size: 1.6rem; }
+    .contact-subtitle { font-size: 0.85rem; }
+    .whatsapp-btn { padding: 0.85rem 1.5rem; font-size: 0.8rem; }
+    .whatsapp-icon { width: 18px; height: 18px; }
+    .trust-badges { gap: 0.5rem; }
+    .trust-badge { font-size: 0.72rem; padding: 0.45rem 0.7rem; }
+}
 .form-group { margin-bottom: 1.5rem; position: relative; }
 label { display: block; color: var(--text-muted); margin-bottom: 0.5rem; font-weight: 500; font-size: 0.9rem; transition: color var(--transition-fast); }
 .form-group:focus-within label { color: var(--primary); }
@@ -415,7 +519,7 @@ footer { border-top: 1px solid var(--border); padding: 3rem 1.5rem 2rem; color: 
 }
 .footer-section a:hover { color: var(--primary); transform: translateX(3px); }
 .footer-bottom { border-top: 1px solid var(--border); padding-top: 1.5rem; text-align: center; font-size: 0.85rem;
-    display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    display: flex; justify-content: center; align-items: center; flex-wrap: wrap; gap: 1rem;
 }
 .social-links { display: flex; gap: 0.75rem; }
 .social-links a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px;
@@ -436,10 +540,10 @@ footer { border-top: 1px solid var(--border); padding: 3rem 1.5rem 2rem; color: 
 }
 .social-lock-wrapper:hover .lock-overlay { opacity: 1; }
 .scroll-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px;
-    background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--dark);
+    background: linear-gradient(135deg, var(--primary), var(--secondary)); color: #0a0e27;
     border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;
     font-size: 1.3rem; box-shadow: 0 0 25px rgba(0,255,136,0.3); transition: all var(--transition-base);
-    opacity: 0; visibility: hidden; transform: translateY(20px); z-index: 99;
+    opacity: 0; visibility: hidden; transform: translateY(20px); z-index: 9999;
 }
 .scroll-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
 .scroll-to-top:hover { transform: translateY(-5px) scale(1.1); box-shadow: 0 0 40px rgba(0,255,136,0.5); }

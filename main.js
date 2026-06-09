@@ -310,27 +310,6 @@ function showToast(message, type = 'success') {
 }
 
 // Contact Form
-const contactForm = document.getElementById('contactForm');
-const submitBtn = document.getElementById('submitBtn');
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const company = document.getElementById('company').value;
-    const message = document.getElementById('message').value;
-    if (!name || !email || !company || !message) {
-        showToast('Completa todos los campos requeridos', 'error');
-        return;
-    }
-    submitBtn.classList.add('loading');
-    submitBtn.disabled = true;
-    setTimeout(() => {
-        submitBtn.classList.remove('loading');
-        submitBtn.disabled = false;
-        showToast('¡Enviado! Te contactaremos en 24 horas.', 'success');
-        contactForm.reset();
-    }, 1500);
-});
 
 // Demo Button
 document.getElementById('demoBtn').addEventListener('click', () => {

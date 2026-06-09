@@ -423,6 +423,18 @@ footer { border-top: 1px solid var(--border); padding: 3rem 1.5rem 2rem; color: 
     color: var(--text-muted); transition: all var(--transition-fast); font-size: 0.9rem;
 }
 .social-links a:hover { background: var(--primary); color: var(--dark); border-color: var(--primary); transform: translateY(-3px); box-shadow: 0 5px 20px rgba(0,255,136,0.3); }
+.social-lock-wrapper { position: relative; display: inline-flex; align-items: center; }
+.social-lock-wrapper a { display: inline-flex; align-items: center; justify-content: center; width: 40px; height: 40px;
+    background: rgba(0,255,136,0.08); border: 1px solid var(--border); border-radius: 50%; text-decoration: none;
+    color: var(--text-muted); transition: all var(--transition-fast); font-size: 0.9rem; cursor: not-allowed;
+}
+.social-lock-wrapper a:hover { background: rgba(0,255,136,0.08) !important; color: var(--text-muted) !important; border-color: var(--border) !important; transform: none !important; box-shadow: none !important; }
+.lock-overlay { position: absolute; top: 50%; left: 50%; transform: translate(-50%, -50%);
+    background: rgba(0,0,0,0.75); border-radius: 50%; width: 40px; height: 40px;
+    display: flex; align-items: center; justify-content: center; font-size: 1rem;
+    opacity: 0; pointer-events: none; transition: opacity 0.2s; z-index: 5;
+}
+.social-lock-wrapper:hover .lock-overlay { opacity: 1; }
 .scroll-to-top { position: fixed; bottom: 2rem; right: 2rem; width: 50px; height: 50px;
     background: linear-gradient(135deg, var(--primary), var(--secondary)); color: var(--dark);
     border: none; border-radius: 50%; cursor: pointer; display: flex; align-items: center; justify-content: center;

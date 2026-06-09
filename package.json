@@ -1,0 +1,11 @@
+{
+  "name": "nexus-ai",
+  "version": "1.0.0",
+  "description": "Agentes Inteligentes que Transforman tu Negocio",
+  "author": "Alan Alba",
+  "private": true,
+  "scripts": {
+    "dev": "python -m http.server 3000",
+    "build": "echo 'Static site - no build needed'"
+  }
+}

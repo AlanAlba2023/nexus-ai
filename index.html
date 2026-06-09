@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="dark">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <title>Nexus AI — Agentes Inteligentes que Transforman tu Negocio</title>
+    <meta name="description" content="Automatización empresarial con Agentes IA. Reduce costos, aumenta eficiencia y escala tu negocio 24/7 con inteligencia artificial.">
+    <meta name="keywords" content="agentes IA, automatización, inteligencia artificial, chatbots, nexus ai, chile">
+    <meta name="author" content="Alan Alba">
+    <meta name="robots" content="index, follow">
+    <meta property="og:description" content="Automatización empresarial con Agentes IA. Reduce costos, aumenta eficiencia y escala tu negocio 24/7.">
+    <meta property="og:type" content="website">
+    <meta name="twitter:card" content="summary_large_image">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-screen" id="loadingScreen">
+        <div class="loading-logo">⚡ NEXUS AI</div>
+        <div class="loading-bar"></div>
+        <div class="loading-text">INICIALIZANDO SISTEMA...</div>
+    </div>
+
+    <!-- Scroll Progress -->
+    <div class="scroll-progress" id="scrollProgress"></div>
+
+    <!-- Custom Cursor -->
+    <div class="cursor-glow" id="cursorGlow"></div>
+
+    <!-- Particle Canvas -->
+    <canvas id="particleCanvas"></canvas>
+
+    <!-- Toast Container -->
+    <div class="toast-container" id="toastContainer"></div>
+
+    <div class="nav-overlay" id="navOverlay"></div>
+    <header id="header">
+        <div class="header-content">
+            <a href="#" class="logo">⚡ NEXUS AI</a>
+            <button class="menu-toggle" id="menuToggle" aria-label="Menú">
+                <span></span><span></span><span></span>
+            </button>
+            <nav id="mainNav">
+                <button class="nav-close" id="navClose" aria-label="Cerrar menú">✕</button>
+                <a href="#services" class="nav-link">Servicios</a>
+                <a href="#about" class="nav-link">Sobre Nosotros</a>
+                <a href="#process" class="nav-link">Cómo Trabajamos</a>
+                <a href="#cases" class="nav-link">Casos de Éxito</a>
+                <a href="#testimonials" class="nav-link">Testimonios</a>
+                <a href="#faq" class="nav-link">FAQ</a>
+                <a href="#contact" class="nav-link">Contáctanos</a>
+                <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
+            </nav>
+        </div>
+    </header>
+
+    <main>
+        <!-- Hero -->
+        <section class="hero">
+            <div class="hero-badge">
+                <span class="pulse-dot"></span>
+                <span>Agentes IA Disponibles 24/7</span>
+            </div>
+            <h1>Tu Negocio Automatizado con IA</h1>
+            <p class="hero-subtitle">
+                Agentes inteligentes que trabajan <span class="highlight">24/7</span> para optimizar procesos, 
+                mejorar servicio al cliente y acelerar el crecimiento de tu empresa.
+            </p>
+            <div class="typewriter" id="typewriter">
+                <span id="typewriterText"></span><span class="typewriter-cursor"></span>
+            </div>
+            <div class="cta-buttons">
+                <a href="#contact" class="magnetic-btn btn-primary btn-glow">Comenzar Ahora</a>
+                <button class="magnetic-btn btn-secondary" id="demoBtn">Ver Demo</button>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="50">0</span>
+                    <span class="hero-stat-label">Proyectos</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="100">0</span>
+                    <span class="hero-stat-label">% ROI</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="24">0</span>
+                    <span class="hero-stat-label">/7 Soporte</span>
+                </div>
+                <div class="hero-stat">
+                    <span class="hero-stat-number" data-count="30">0</span>
+                    <span class="hero-stat-label">Días Setup</span>
+                </div>
+            </div>
+            <div class="scroll-indicator" onclick="document.getElementById('services').scrollIntoView({behavior:'smooth'})">
+                <div class="mouse"></div>
+                <span>Scroll</span>
+            </div>
+        </section>
+
+        <!-- Services -->
+        <section id="services">
+            <div class="section-header reveal">
+                <span class="section-tag">Nuestros Servicios</span>
+                <h2>Soluciones de IA a tu Medida</h2>
+                <p class="section-desc">Desde automatización hasta análisis avanzado, tenemos la solución perfecta para tu negocio.</p>
+            </div>
+            <div class="grid">
+                <div class="card reveal reveal-delay-1">
+                    <div class="card-icon">🤖</div>
+                    <h3>Automatización Inteligente</h3>
+                    <p>Reduce tareas manuales hasta un 80%. Nuestros agentes IA automatizan flujos complejos en ventas, contabilidad y recursos humanos.</p>
+                    <a href="#contact" class="card-link">Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="card reveal reveal-delay-2">
+                    <div class="card-icon">💬</div>
+                    <h3>Agentes Chat Avanzados</h3>
+                    <p>Chatbots inteligentes que responden preguntas, generan leads cualificados y resuelven problemas sin intervención humana.</p>
+                    <a href="#contact" class="card-link">Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="card reveal reveal-delay-3">
+                    <div class="card-icon">📊</div>
+                    <h3>Análisis de Datos</h3>
+                    <p>Agentes que analizan datos en tiempo real, generan insights automáticos y crean reportes ejecutivos personalizados.</p>
+                    <a href="#contact" class="card-link">Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="card reveal reveal-delay-4">
+                    <div class="card-icon">⚙️</div>
+                    <h3>Integraciones Complejas</h3>
+                    <p>Conectamos agentes con tu tech stack existente. Compatible con CRM, ERP, bases de datos y sistemas legados.</p>
+                    <a href="#contact" class="card-link">Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="card reveal reveal-delay-5">
+                    <div class="card-icon">🔒</div>
+                    <h3>Seguridad Enterprise</h3>
+                    <p>Encriptación end-to-end, cumplimiento GDPR/LGPD y auditorías de seguridad constantes para proteger tus datos.</p>
+                    <a href="#contact" class="card-link">Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+                <div class="card reveal reveal-delay-5">
+                    <div class="card-icon">📈</div>
+                    <h3>ROI Medible</h3>
+                    <p>Medimos resultados reales: ahorro de tiempo, reducción de costos e incremento de ingresos. Todo cuantificable.</p>
+                    <a href="#contact" class="card-link">Saber más <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M5 12h14M12 5l7 7-7 7"/></svg></a>
+                </div>
+            </div>
+        </section>
+
+        <!-- About -->
+        <section id="about">
+            <div class="section-header reveal">
+                <span class="section-tag">Sobre Nosotros</span>
+                <h2>Transformamos Negocios con IA</h2>
+                <p class="section-desc">Especialistas en crear y desplegar agentes de IA que funcionan como miembros de tu equipo.</p>
+            </div>
+            <div class="about-content">
+                <div class="about-text reveal">
+                    <h3>La Revolución de la Automatización</h3>
+                    <p>En <strong>Nexus AI</strong> no solo automatizamos procesos: revolucionamos la forma en que trabaja tu empresa. Nuestros agentes inteligentes aprenden, adaptan y optimizan operaciones 24/7.</p>
+                    <p>Con <strong>50+ proyectos exitosos</strong> en diversas industrias, sabemos implementar soluciones que generan resultados medibles desde el primer día.</p>
+                    <div class="stats">
+                        <div class="stat">
+                            <span class="stat-number" data-count="50">0</span>
+                            <span class="stat-label">Proyectos</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="100">0</span>
+                            <span class="stat-label">% ROI Positivo</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="24">0</span>
+                            <span class="stat-label">/7 Soporte</span>
+                        </div>
+                        <div class="stat">
+                            <span class="stat-number" data-count="30">0</span>
+                            <span class="stat-label">Días Setup</span>
+                        </div>
+                    </div>
+                </div>
+                <div class="about-visual reveal">
+                    <div class="about-visual-inner">
+                        <div class="orbit-ring"><div class="orbit-dot"></div></div>
+                        <div class="orbit-ring"><div class="orbit-dot"></div></div>
+                        <div class="orbit-ring"><div class="orbit-dot"></div></div>
+                        <div class="about-center">🚀</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Process -->
+        <section id="process">
+            <div class="section-header reveal">
+                <span class="section-tag">Cómo Trabajamos</span>
+                <h2>Proceso de Implementación</h2>
+                <p class="section-desc">De la idea a la producción en 30 días. Un proceso probado y optimizado.</p>
+            </div>
+            <div class="timeline">
+                <div class="timeline-item reveal">
+                    <div class="timeline-content">
+                        <div class="timeline-step">Paso 01</div>
+                        <h4>Diagnóstico</h4>
+                        <p>Analizamos tus procesos actuales, identificamos cuellos de botella y definimos oportunidades de automatización.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-1">
+                    <div class="timeline-content">
+                        <div class="timeline-step">Paso 02</div>
+                        <h4>Diseño</h4>
+                        <p>Diseñamos agentes personalizados adaptados a tus flujos de trabajo específicos y objetivos de negocio.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-2">
+                    <div class="timeline-content">
+                        <div class="timeline-step">Paso 03</div>
+                        <h4>Desarrollo</h4>
+                        <p>Construimos e integramos los agentes con tus sistemas existentes. Pruebas exhaustivas en ambiente controlado.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+                <div class="timeline-item reveal reveal-delay-3">
+                    <div class="timeline-content">
+                        <div class="timeline-step">Paso 04</div>
+                        <h4>Despliegue</h4>
+                        <p>Lanzamiento a producción con monitoreo continuo. Capacitación de tu equipo y soporte dedicado.</p>
+                    </div>
+                    <div class="timeline-dot"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Cases -->
+        <section id="cases">
+            <div class="section-header reveal">
+                <span class="section-tag">Resultados Reales</span>
+                <h2>Casos de Éxito</h2>
+                <p class="section-desc">Empresas que ya transformaron sus operaciones con Nexus AI.</p>
+            </div>
+            <div class="grid">
+                <div class="case-card reveal reveal-delay-1">
+                    <div class="case-header">
+                        <div class="case-company">Empresa de Contabilidad</div>
+                        <div class="case-result">+70% Eficiencia</div>
+                    </div>
+                    <p>Agente que automatiza reconciliación de cuentas. Procesa 300 transacciones diarias sin intervención manual, reduciendo errores en un 95%.</p>
+                    <div class="case-meta"><span class="meta-icon">⏱️</span> 20 días de implementación</div>
+                </div>
+                <div class="case-card reveal reveal-delay-2">
+                    <div class="case-header">
+                        <div class="case-company">Startup E-commerce</div>
+                        <div class="case-result">+150% Leads</div>
+                    </div>
+                    <p>Chatbot avanzado que atiende 24/7 generando 50 leads cualificados diarios. Costo por lead 70% menor que campañas tradicionales.</p>
+                    <div class="case-meta"><span class="meta-icon">⏱️</span> 15 días de implementación</div>
+                </div>
+                <div class="case-card reveal reveal-delay-3">
+                    <div class="case-header">
+                        <div class="case-company">PyME Servicios</div>
+                        <div class="case-result">$45K/mes</div>
+                    </div>
+                    <p>Agente de análisis que genera reportes automáticos. Eliminó 2 puestos administrativos sin perder calidad, ahorrando $45K mensuales.</p>
+                    <div class="case-meta"><span class="meta-icon">⏱️</span> 25 días de implementación</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials -->
+        <section id="testimonials">
+            <div class="section-header reveal">
+                <span class="section-tag">Testimonios</span>
+                <h2>Lo que Dicen Nuestros Clientes</h2>
+                <p class="section-desc">Historias reales de empresas que transformaron su operación.</p>
+            </div>
+            <div class="testimonials-container reveal">
+                <div class="testimonial-slider">
+                    <div class="testimonial-track" id="testimonialTrack">
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <p class="testimonial-text">Nexus AI revolucionó nuestra operación. El agente de contabilidad procesa en minutos lo que antes tomaba días. El ROI fue evidente desde el primer mes.</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">MR</div>
+                                    <div class="testimonial-info">
+                                        <div class="testimonial-name">María Rodríguez</div>
+                                        <div class="testimonial-role">CFO, Contabilidad Pro</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <p class="testimonial-text">El chatbot de Nexus AI atiende a nuestros clientes 24/7 con una calidad sorprendente. Hemos triplicado los leads cualificados y reducido costos drásticamente.</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">JL</div>
+                                    <div class="testimonial-info">
+                                        <div class="testimonial-name">Javier López</div>
+                                        <div class="testimonial-role">CEO, TechShop Chile</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="testimonial-slide">
+                            <div class="testimonial-card">
+                                <div class="testimonial-quote">"</div>
+                                <p class="testimonial-text">Implementamos 3 agentes IA con Nexus y los resultados superaron todas las expectativas. Procesos que tardaban semanas ahora se completan en horas.</p>
+                                <div class="testimonial-author">
+                                    <div class="testimonial-avatar">AC</div>
+                                    <div class="testimonial-info">
+                                        <div class="testimonial-name">Ana Contreras</div>
+                                        <div class="testimonial-role">Directora de Operaciones, ServiPlus</div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="testimonial-arrows">
+                    <button class="testimonial-arrow" id="prevTestimonial" aria-label="Anterior">‹</button>
+                    <button class="testimonial-arrow" id="nextTestimonial" aria-label="Siguiente">›</button>
+                </div>
+                <div class="testimonial-nav">
+                    <button class="testimonial-dot active" data-slide="0" aria-label="Testimonio 1"></button>
+                    <button class="testimonial-dot" data-slide="1" aria-label="Testimonio 2"></button>
+                    <button class="testimonial-dot" data-slide="2" aria-label="Testimonio 3"></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Pricing (comentado temporalmente)
+        <section id="pricing">
+            <div class="section-header reveal">
+                <span class="section-tag">Planes y Precios</span>
+                <h2>Elige tu Plan</h2>
+                <p class="section-desc">Soluciones escalables para empresas de cualquier tamaño. Sin contratos de permanencia.</p>
+            </div>
+            <div class="pricing-grid">
+                <div class="pricing-card reveal reveal-delay-1">
+                    <h3>Starter</h3>
+                    <div class="price-tag">$2.500</div>
+                    <div class="price-period">USD / mes</div>
+                    <ul class="price-features">
+                        <li>1 Agente IA personalizado</li>
+                        <li>5.000 interacciones/mes</li>
+                        <li>Soporte por email</li>
+                        <li>Dashboard básico</li>
+                        <li>1 integración</li>
+                        <li class="disabled">Reportes personalizados</li>
+                        <li class="disabled">Soporte 24/7</li>
+                    </ul>
+                    <button class="magnetic-btn btn-secondary" onclick="showToast('Plan Starter seleccionado. Redirigiendo...', 'info')">Comenzar</button>
+                </div>
+                <div class="pricing-card featured reveal reveal-delay-2">
+                    <div class="pricing-badge">Recomendado</div>
+                    <h3>Professional</h3>
+                    <div class="price-tag">$5.000</div>
+                    <div class="price-period">USD / mes</div>
+                    <ul class="price-features">
+                        <li>3 Agentes IA personalizados</li>
+                        <li>50.000 interacciones/mes</li>
+                        <li>Soporte 24/7 prioritario</li>
+                        <li>Dashboard avanzado</li>
+                        <li>5 integraciones</li>
+                        <li>Reportes personalizados</li>
+                        <li>API completa</li>
+                    </ul>
+                    <button class="magnetic-btn btn-primary btn-glow" onclick="showToast('Plan Professional seleccionado. Redirigiendo...', 'info')">Mejor Opción</button>
+                </div>
+                <div class="pricing-card reveal reveal-delay-3">
+                    <h3>Enterprise</h3>
+                    <div class="price-tag">Custom</div>
+                    <div class="price-period">USD / mes</div>
+                    <ul class="price-features">
+                        <li>Agentes IA ilimitados</li>
+                        <li>Interacciones ilimitadas</li>
+                        <li>Gestor de cuenta dedicado</li>
+                        <li>API completa + webhooks</li>
+                        <li>Integraciones ilimitadas</li>
+                        <li>SLA 99.9% garantizado</li>
+                        <li>On-premise disponible</li>
+                    </ul>
+                    <button class="magnetic-btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contactar</button>
+                </div>
+            </div>
+        </section>
+        -->
+
+        <!-- FAQ -->
+        <section id="faq">
+            <div class="section-header reveal">
+                <span class="section-tag">Preguntas Frecuentes</span>
+                <h2>Resolvemos tus Dudas</h2>
+                <p class="section-desc">Todo lo que necesitas saber antes de comenzar tu transformación digital.</p>
+            </div>
+            <div class="faq-container">
+                <div class="faq-item reveal">
+                    <button class="faq-question">
+                        <span>¿Cuánto tiempo toma implementar un agente IA?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">El tiempo promedio es de 15 a 30 días dependiendo de la complejidad. Agentes simples como chatbots pueden estar listos en 1-2 semanas, mientras que integraciones complejas con sistemas legacy pueden requerir hasta 30 días.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-1">
+                    <button class="faq-question">
+                        <span>¿Necesito conocimientos técnicos para usar los agentes?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">No. Diseñamos interfaces intuitivas y proporcionamos capacitación completa. Tu equipo puede interactuar con los agentes sin conocimientos de programación. Nosotros nos encargamos de toda la complejidad técnica.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-2">
+                    <button class="faq-question">
+                        <span>¿Qué pasa con la seguridad de mis datos?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">La seguridad es nuestra prioridad. Utilizamos encriptación end-to-end, cumplimos con GDPR y LGPD, y realizamos auditorías de seguridad constantes. Tus datos nunca se usan para entrenar modelos de terceros.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-3">
+                    <button class="faq-question">
+                        <span>¿Puedo integrar los agentes con mi sistema actual?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">Absolutamente. Nuestros agentes se integran con CRMs (Salesforce, HubSpot), ERPs (SAP, Oracle), bases de datos, APIs REST, y prácticamente cualquier sistema que tenga una interfaz programable.</div>
+                    </div>
+                </div>
+                <div class="faq-item reveal reveal-delay-4">
+                    <button class="faq-question">
+                        <span>¿Hay contrato de permanencia?</span>
+                        <span class="faq-icon">+</span>
+                    </button>
+                    <div class="faq-answer">
+                        <div class="faq-answer-inner">No. Todos nuestros planes son mensuales sin contratos de permanencia. Puedes cancelar en cualquier momento. Creemos que nuestros resultados te harán querer quedarte.</div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact">
+            <div class="section-header reveal">
+                <span class="section-tag">Contacto</span>
+                <h2>Comienza tu Transformación</h2>
+                <p class="section-desc">Cuéntanos sobre tu proyecto y te contactamos en menos de 24 horas.</p>
+            </div>
+            <div class="contact-section reveal">
+                <form id="contactForm">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="name">Nombre completo *</label>
+                            <input type="text" id="name" name="name" required placeholder="Tu nombre">
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email *</label>
+                            <input type="email" id="email" name="email" required placeholder="tu@email.com">
+                        </div>
+                    </div>
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="company">Empresa *</label>
+                            <input type="text" id="company" name="company" required placeholder="Nombre de tu empresa">
+                        </div>
+                        <div class="form-group">
+                            <label for="phone">Teléfono</label>
+                            <input type="tel" id="phone" name="phone" placeholder="+56 9 XXXX XXXX">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="service">Servicio de interés</label>
+                        <select id="service" name="service">
+                            <option value="">Selecciona un servicio</option>
+                            <option value="automation">Automatización Inteligente</option>
+                            <option value="chatbot">Agentes Chat</option>
+                            <option value="analytics">Análisis de Datos</option>
+                            <option value="integration">Integraciones</option>
+                            <option value="enterprise">Solución Enterprise</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Cuéntanos tu proyecto *</label>
+                        <textarea id="message" name="message" required placeholder="Describe los procesos que quieres automatizar..."></textarea>
+                    </div>
+                    <button type="submit" class="form-submit" id="submitBtn">
+                        <span class="spinner"></span>
+                        <span class="btn-text">Enviar Solicitud</span>
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section reveal">
+            <h2>¿Listo para Transformar tu Negocio?</h2>
+            <p>Consulta gratuita. Analizamos tu negocio y diseñamos una solución personalizada en 48 horas.</p>
+            <a href="#contact" class="magnetic-btn btn-primary btn-glow">Agendar Consulta Gratis</a>
+        </section>
+    </main>
+
+    <footer>
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h4>⚡ NEXUS AI</h4>
+                <p>Transformamos negocios con agentes de IA inteligentes que trabajan 24/7. Especialistas en automatización empresarial.</p>
+                <div class="social-links">
+                    <a href="#" aria-label="LinkedIn" onclick="showToast('LinkedIn - Próximamente', 'info')">in</a>
+                    <a href="#" aria-label="Twitter" onclick="showToast('Twitter - Próximamente', 'info')">𝕏</a>
+                    <a href="#" aria-label="GitHub" onclick="showToast('GitHub - Próximamente', 'info')">⚙</a>
+                    <a href="#" aria-label="Instagram" onclick="showToast('Instagram - Próximamente', 'info')">📷</a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <h4>Servicios</h4>
+                <a href="#services">Automatización</a>
+                <a href="#services">Chatbots IA</a>
+                <a href="#services">Análisis</a>
+                <a href="#services">Integraciones</a>
+            </div>
+            <div class="footer-section">
+                <h4>Empresa</h4>
+                <a href="#about">Sobre Nosotros</a>
+                <a href="#cases">Casos</a>
+                <a href="#pricing">Precios</a>
+                <a href="#contact">Contacto</a>
+            </div>
+            <div class="footer-section">
+                <h4>Contacto</h4>
+                <a href="mailto:contact@nexus-ai.com">📧 contact@nexus-ai.com</a>
+                <a href="tel:+569XXXXXXXX">📱 +56 9 XXXX XXXX</a>
+                <a href="#">🌍 Santiago, Chile</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2024 Nexus AI. Todos los derechos reservados.</p>
+            <p>Diseñado con IA, hecho con pasión por Alan Alba</p>
+        </div>
+    </footer>
+
+    <button class="scroll-to-top" id="scrollToTopBtn" title="Volver al inicio">↑</button>
+
+    <script src="main.js"></script>
+</body>
+</html>

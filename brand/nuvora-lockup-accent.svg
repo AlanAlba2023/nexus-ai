@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 396 96" fill="none" role="img" aria-label="Nuvora">
+  <g stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 74V22"/>
+    <path d="M70 74V22"/>
+    <path d="M26 22 43.5 42.7"/>
+    <path d="M52.5 53.3 70 74"/>
+  </g>
+  <path d="M48 36c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" fill="#FBBF24"/>
+  <text x="116" y="67" fill="currentColor"
+        font-family="Satoshi, 'General Sans', Inter, sans-serif"
+        font-size="52" font-weight="600" letter-spacing="-1.2">Nuvora</text>
+</svg>

@@ -330,6 +330,58 @@ document.querySelectorAll('.faq-question').forEach(question => {
     });
 });
 
+// Tarjetas de servicios: giro con "Saber más"
+document.querySelectorAll('.flip-card').forEach((card) => {
+    const trigger = card.querySelector('.flip-trigger');
+    const closeBtn = card.querySelector('.flip-close');
+    const back = card.querySelector('.flip-back');
+    if (!trigger || !back) return;
+
+    const setState = (open) => {
+        card.classList.toggle('is-flipped', open);
+        trigger.setAttribute('aria-expanded', open ? 'true' : 'false');
+        back.inert = !open;
+        back.setAttribute('aria-hidden', open ? 'false' : 'true');
+    };
+
+    setState(false);
+
+    trigger.addEventListener('click', () => {
+        const willOpen = !card.classList.contains('is-flipped');
+        document.querySelectorAll('.flip-card.is-flipped').forEach((other) => {
+            if (other === card) return;
+            other.classList.remove('is-flipped');
+            const otherTrigger = other.querySelector('.flip-trigger');
+            const otherBack = other.querySelector('.flip-back');
+            if (otherTrigger) otherTrigger.setAttribute('aria-expanded', 'false');
+            if (otherBack) {
+                otherBack.inert = true;
+                otherBack.setAttribute('aria-hidden', 'true');
+            }
+        });
+        setState(willOpen);
+    });
+
+    if (closeBtn) closeBtn.addEventListener('click', () => setState(false));
+});
+
+document.addEventListener('keydown', (event) => {
+    if (event.key !== 'Escape') return;
+    document.querySelectorAll('.flip-card.is-flipped').forEach((card) => {
+        card.classList.remove('is-flipped');
+        const trigger = card.querySelector('.flip-trigger');
+        const back = card.querySelector('.flip-back');
+        if (back) {
+            back.inert = true;
+            back.setAttribute('aria-hidden', 'true');
+        }
+        if (trigger) {
+            trigger.setAttribute('aria-expanded', 'false');
+            trigger.focus();
+        }
+    });
+});
+
 // Toast Notifications
 function showToast(message, type = 'success') {
     const container = document.getElementById('toastContainer');

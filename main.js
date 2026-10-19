@@ -95,6 +95,15 @@ let viewportH = window.innerHeight;
 let connectionDistance = 220;
 let animationId = null;
 
+function isLightTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light';
+}
+// En fondo claro las partículas necesitan más peso para no desaparecer.
+function particleColor(alpha) {
+    const a = isLightTheme() ? Math.min(1, alpha * 1.25) : alpha;
+    return isLightTheme() ? `rgba(13,148,136, ${a})` : `rgba(45,212,191, ${a})`;
+}
+
 class Particle {
     constructor() {
         this.x = Math.random() * viewportW;
@@ -113,7 +122,7 @@ class Particle {
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = `rgba(45,212,191, ${this.alpha})`;
+        ctx.fillStyle = particleColor(this.alpha);
         ctx.fill();
     }
 }
@@ -152,7 +161,7 @@ function drawConnections() {
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(45,212,191, ${opacity})`;
+                ctx.strokeStyle = particleColor(opacity);
                 ctx.lineWidth = 1;
                 ctx.stroke();
             }

@@ -97,8 +97,9 @@ body {
 }
 [data-theme="light"] .bg-depth {
     background:
-        radial-gradient(900px 620px at 12% -5%, rgba(0,200,110,0.10), transparent 62%),
-        radial-gradient(820px 700px at 92% 6%, rgba(0,150,200,0.07), transparent 62%);
+        radial-gradient(900px 620px at 12% -5%, rgba(45,212,191,0.22), transparent 62%),
+        radial-gradient(820px 700px at 92% 6%, rgba(56,189,248,0.16), transparent 62%),
+        radial-gradient(1100px 760px at 50% 108%, rgba(45,212,191,0.12), transparent 68%);
 }
 
 .bg-shield { position: fixed; inset: 0; z-index: 1; pointer-events: none;
@@ -107,7 +108,7 @@ body {
 }
 [data-theme="light"] .bg-shield {
     background: radial-gradient(ellipse 760px 560px at 50% 46%,
-        rgba(248,250,252,0.8) 0%, rgba(248,250,252,0.45) 55%, transparent 80%);
+        rgba(241,245,249,0.62) 0%, rgba(241,245,249,0.34) 55%, transparent 80%);
 }
 .cursor-glow { position: fixed; width: 20px; height: 20px; border: 2px solid var(--primary);
     border-radius: 50%; pointer-events: none; z-index: 9998; transition: transform 0.1s ease, opacity 0.3s ease;

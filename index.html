@@ -3,15 +3,17 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
-    <title>Nexus AI — Agentes Inteligentes que Transforman tu Negocio</title>
-    <meta name="description" content="Automatización empresarial con Agentes IA. Reduce costos, aumenta eficiencia y escala tu negocio 24/7 con inteligencia artificial.">
-    <meta name="keywords" content="agentes IA, automatización, inteligencia artificial, chatbots, nexus ai, chile">
+    <title>Nuvora — Agentes de IA que cuidan tu operación 24/7</title>
+    <meta name="description" content="Agencia de IA que diseña, opera y monitorea agentes en producción. Reducimos costos, aumentamos eficiencia y cuidamos tu negocio 24/7.">
+    <meta name="keywords" content="agentes IA, automatización, inteligencia artificial, chatbots, nuvora, chile">
     <meta name="author" content="Alan Alba">
     <meta name="robots" content="index, follow">
-    <meta property="og:description" content="Automatización empresarial con Agentes IA. Reduce costos, aumenta eficiencia y escala tu negocio 24/7.">
+    <meta property="og:title" content="Nuvora — Agentes de IA que cuidan tu operación 24/7">
+    <meta property="og:site_name" content="Nuvora">
+    <meta property="og:description" content="Agencia de IA que diseña, opera y monitorea agentes en producción. Reduce costos, aumenta eficiencia y escala tu negocio 24/7.">
     <meta property="og:type" content="website">
     <meta name="twitter:card" content="summary_large_image">
-    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E⚡%3C/text%3E%3C/svg%3E">
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cg fill='none' stroke='%232DD4BF' stroke-width='4.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M8 26V6'/%3E%3Cpath d='M24 26V6'/%3E%3Cpath d='M8 6 13.2 12.8'/%3E%3Cpath d='M18.8 19.2 24 26'/%3E%3C/g%3E%3Cpath d='M16 10.8c.4 3.2 1.6 4.4 4.8 4.8-3.2.4-4.4 1.6-4.8 4.8-.4-3.2-1.6-4.4-4.8-4.8 3.2-.4 4.4-1.6 4.8-4.8z' fill='%23FBBF24'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -20,7 +22,7 @@
 <body>
     <!-- Loading Screen -->
     <div class="loading-screen" id="loadingScreen">
-        <div class="loading-logo">⚡ NEXUS AI</div>
+        <div class="loading-logo"><svg class="logo-mark" viewBox="0 0 96 96" width="44" height="44" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M26 74V22"/><path d="M70 74V22"/><path d="M26 22 43.5 42.7"/><path d="M52.5 53.3 70 74"/></g><path d="M48 36c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" fill="currentColor"/></svg>NUVORA</div>
         <div class="loading-bar"></div>
         <div class="loading-text">INICIALIZANDO SISTEMA...</div>
     </div>
@@ -31,8 +33,14 @@
     <!-- Custom Cursor -->
     <div class="cursor-glow" id="cursorGlow"></div>
 
+    <!-- Profundidad de fondo -->
+    <div class="bg-depth" aria-hidden="true"></div>
+
     <!-- Particle Canvas -->
-    <canvas id="particleCanvas"></canvas>
+    <canvas id="particleCanvas" aria-hidden="true"></canvas>
+
+    <!-- Velo central: el contenido manda, la red queda como marco -->
+    <div class="bg-shield" aria-hidden="true"></div>
 
     <!-- Toast Container -->
     <div class="toast-container" id="toastContainer"></div>
@@ -40,7 +48,7 @@
     <div class="nav-overlay" id="navOverlay"></div>
     <header id="header">
         <div class="header-content">
-            <a href="#" class="logo">⚡ NEXUS AI</a>
+            <a href="#" class="logo"><svg class="logo-mark" viewBox="0 0 96 96" width="26" height="26" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M26 74V22"/><path d="M70 74V22"/><path d="M26 22 43.5 42.7"/><path d="M52.5 53.3 70 74"/></g><path d="M48 36c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" fill="currentColor"/></svg>NUVORA</a>
             <button class="menu-toggle" id="menuToggle" aria-label="Menú">
                 <span></span><span></span><span></span>
             </button>
@@ -51,6 +59,7 @@
                 <a href="#process" class="nav-link">Cómo Trabajamos</a>
                 <a href="#cases" class="nav-link">Casos de Éxito</a>
                 <a href="#testimonials" class="nav-link">Testimonios</a>
+                <a href="#pricing" class="nav-link">Precios</a>
                 <a href="#faq" class="nav-link">FAQ</a>
                 <a href="#contact" class="nav-link">Contáctanos</a>
                 <button class="theme-toggle" id="themeToggle" aria-label="Cambiar tema">🌙</button>
@@ -158,7 +167,7 @@
             <div class="about-content">
                 <div class="about-text reveal">
                     <h3>La Revolución de la Automatización</h3>
-                    <p>En <strong>Nexus AI</strong> no solo automatizamos procesos: revolucionamos la forma en que trabaja tu empresa. Nuestros agentes inteligentes aprenden, adaptan y optimizan operaciones 24/7.</p>
+                    <p>En <strong>Nuvora</strong> no solo automatizamos procesos: revolucionamos la forma en que trabaja tu empresa. Nuestros agentes inteligentes aprenden, adaptan y optimizan operaciones 24/7.</p>
                     <p>Con <strong>50+ proyectos exitosos</strong> en diversas industrias, sabemos implementar soluciones que generan resultados medibles desde el primer día.</p>
                     <div class="stats">
                         <div class="stat">
@@ -238,7 +247,7 @@
             <div class="section-header reveal">
                 <span class="section-tag">Resultados Reales</span>
                 <h2>Casos de Éxito</h2>
-                <p class="section-desc">Empresas que ya transformaron sus operaciones con Nexus AI.</p>
+                <p class="section-desc">Empresas que ya transformaron sus operaciones con Nuvora.</p>
             </div>
             <div class="grid">
                 <div class="case-card reveal reveal-delay-1">
@@ -281,7 +290,7 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-card">
                                 <div class="testimonial-quote">"</div>
-                                <p class="testimonial-text">Nexus AI revolucionó nuestra operación. El agente de contabilidad procesa en minutos lo que antes tomaba días. El ROI fue evidente desde el primer mes.</p>
+                                <p class="testimonial-text">Nuvora revolucionó nuestra operación. El agente de contabilidad procesa en minutos lo que antes tomaba días. El ROI fue evidente desde el primer mes.</p>
                                 <div class="testimonial-author">
                                     <div class="testimonial-avatar">MR</div>
                                     <div class="testimonial-info">
@@ -294,7 +303,7 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-card">
                                 <div class="testimonial-quote">"</div>
-                                <p class="testimonial-text">El chatbot de Nexus AI atiende a nuestros clientes 24/7 con una calidad sorprendente. Hemos triplicado los leads cualificados y reducido costos drásticamente.</p>
+                                <p class="testimonial-text">El chatbot de Nuvora atiende a nuestros clientes 24/7 con una calidad sorprendente. Hemos triplicado los leads cualificados y reducido costos drásticamente.</p>
                                 <div class="testimonial-author">
                                     <div class="testimonial-avatar">JL</div>
                                     <div class="testimonial-info">
@@ -307,7 +316,7 @@
                         <div class="testimonial-slide">
                             <div class="testimonial-card">
                                 <div class="testimonial-quote">"</div>
-                                <p class="testimonial-text">Implementamos 3 agentes IA con Nexus y los resultados superaron todas las expectativas. Procesos que tardaban semanas ahora se completan en horas.</p>
+                                <p class="testimonial-text">Implementamos 3 agentes IA con Nuvora y los resultados superaron todas las expectativas. Procesos que tardaban semanas ahora se completan en horas.</p>
                                 <div class="testimonial-author">
                                     <div class="testimonial-avatar">AC</div>
                                     <div class="testimonial-info">
@@ -331,63 +340,65 @@
             </div>
         </section>
 
-        <!-- Pricing (comentado temporalmente)
+        <!-- Pricing -->
         <section id="pricing">
             <div class="section-header reveal">
-                <span class="section-tag">Planes y Precios</span>
-                <h2>Elige tu Plan</h2>
-                <p class="section-desc">Soluciones escalables para empresas de cualquier tamaño. Sin contratos de permanencia.</p>
+                <span class="section-tag">Precios</span>
+                <h2>Diseño Web a tu Medida</h2>
+                <p class="section-desc">Precios en pesos chilenos. Pago único, sin mensualidades ni sorpresas.</p>
             </div>
             <div class="pricing-grid">
                 <div class="pricing-card reveal reveal-delay-1">
-                    <h3>Starter</h3>
-                    <div class="price-tag">$2.500</div>
-                    <div class="price-period">USD / mes</div>
+                    <h3>Esencial</h3>
+                    <div class="price-tag">$100.000</div>
+                    <div class="price-period">Pago único · CLP</div>
                     <ul class="price-features">
-                        <li>1 Agente IA personalizado</li>
-                        <li>5.000 interacciones/mes</li>
-                        <li>Soporte por email</li>
-                        <li>Dashboard básico</li>
-                        <li>1 integración</li>
-                        <li class="disabled">Reportes personalizados</li>
-                        <li class="disabled">Soporte 24/7</li>
+                        <li>Landing page de 1 sección</li>
+                        <li>Diseño responsive (móvil y desktop)</li>
+                        <li>Formulario de contacto</li>
+                        <li>SEO básico</li>
+                        <li>Dominio y hosting configurado</li>
+                        <li>Entrega en 5 días hábiles</li>
+                        <li class="disabled">Blog o múltiples páginas</li>
+                        <li class="disabled">Tienda online</li>
                     </ul>
-                    <button class="magnetic-btn btn-secondary" onclick="showToast('Plan Starter seleccionado. Redirigiendo...', 'info')">Comenzar</button>
+                    <button class="magnetic-btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Quiero este</button>
                 </div>
                 <div class="pricing-card featured reveal reveal-delay-2">
                     <div class="pricing-badge">Recomendado</div>
-                    <h3>Professional</h3>
-                    <div class="price-tag">$5.000</div>
-                    <div class="price-period">USD / mes</div>
+                    <h3>Profesional</h3>
+                    <div class="price-tag">$300.000</div>
+                    <div class="price-period">Pago único · CLP</div>
                     <ul class="price-features">
-                        <li>3 Agentes IA personalizados</li>
-                        <li>50.000 interacciones/mes</li>
-                        <li>Soporte 24/7 prioritario</li>
-                        <li>Dashboard avanzado</li>
-                        <li>5 integraciones</li>
-                        <li>Reportes personalizados</li>
-                        <li>API completa</li>
+                        <li>Sitio de hasta 5 páginas</li>
+                        <li>Diseño personalizado con tu marca</li>
+                        <li>Blog o catálogo de servicios</li>
+                        <li>SEO avanzado + Google Analytics</li>
+                        <li>Formularios y WhatsApp integrado</li>
+                        <li>Entrega en 10 días hábiles</li>
+                        <li>Soporte 30 días post-entrega</li>
+                        <li class="disabled">Tienda online</li>
                     </ul>
-                    <button class="magnetic-btn btn-primary btn-glow" onclick="showToast('Plan Professional seleccionado. Redirigiendo...', 'info')">Mejor Opción</button>
+                    <button class="magnetic-btn btn-primary btn-glow" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Mejor Opción</button>
                 </div>
                 <div class="pricing-card reveal reveal-delay-3">
-                    <h3>Enterprise</h3>
-                    <div class="price-tag">Custom</div>
-                    <div class="price-period">USD / mes</div>
+                    <h3>Premium</h3>
+                    <div class="price-tag">$500.000</div>
+                    <div class="price-period">Pago único · CLP</div>
                     <ul class="price-features">
-                        <li>Agentes IA ilimitados</li>
-                        <li>Interacciones ilimitadas</li>
-                        <li>Gestor de cuenta dedicado</li>
-                        <li>API completa + webhooks</li>
-                        <li>Integraciones ilimitadas</li>
-                        <li>SLA 99.9% garantizado</li>
-                        <li>On-premise disponible</li>
+                        <li>Tienda online o hasta 10 páginas</li>
+                        <li>Pagos en línea y gestión de pedidos</li>
+                        <li>Chatbot IA integrado</li>
+                        <li>Panel de administración</li>
+                        <li>SEO técnico + optimización de velocidad</li>
+                        <li>Entrega en 15 días hábiles</li>
+                        <li>Soporte 60 días post-entrega</li>
+                        <li>Capacitación al equipo</li>
                     </ul>
                     <button class="magnetic-btn btn-secondary" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Contactar</button>
                 </div>
             </div>
         </section>
-        -->
 
         <!-- FAQ -->
         <section id="faq">
@@ -435,11 +446,11 @@
                 </div>
                 <div class="faq-item reveal reveal-delay-4">
                     <button class="faq-question">
-                        <span>¿Hay contrato de permanencia?</span>
+                        <span>¿Hay pagos mensuales o contratos?</span>
                         <span class="faq-icon">+</span>
                     </button>
                     <div class="faq-answer">
-                        <div class="faq-answer-inner">No. Todos nuestros planes son mensuales sin contratos de permanencia. Puedes cancelar en cualquier momento. Creemos que nuestros resultados te harán querer quedarte.</div>
+                        <div class="faq-answer-inner">No. El desarrollo web se paga una sola vez, sin mensualidades ni contratos de permanencia. El hosting y el dominio corren por tu cuenta (te ayudamos a configurarlos) y el soporte post-entrega va incluido según el plan.</div>
                     </div>
                 </div>
             </div>
@@ -470,7 +481,7 @@
                     </p>
 
                     <!-- Botón WhatsApp premium -->
-                    <a href="https://wa.me/56933869881?text=Hola%20Nexus%20AI%2C%20me%20interesa%20agendar%20una%20consulta%20gratuita" class="whatsapp-btn" target="_blank" rel="noopener">
+                    <a href="https://wa.me/56933869881?text=Hola%20Nuvora%2C%20me%20interesa%20agendar%20una%20consulta%20gratuita" class="whatsapp-btn" target="_blank" rel="noopener">
                         <span class="btn-content">
                             <svg class="whatsapp-icon" viewBox="0 0 24 24" fill="currentColor">
                                 <path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.371-.01-.57-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 01-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 01-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 012.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0012.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 005.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 00-3.48-8.413z"/>
@@ -513,7 +524,7 @@
     <footer>
         <div class="footer-content">
             <div class="footer-brand">
-                <h4>⚡ NEXUS AI</h4>
+                <h4><svg class="logo-mark" viewBox="0 0 96 96" width="22" height="22" fill="none" aria-hidden="true"><g stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"><path d="M26 74V22"/><path d="M70 74V22"/><path d="M26 22 43.5 42.7"/><path d="M52.5 53.3 70 74"/></g><path d="M48 36c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" fill="currentColor"/></svg>NUVORA</h4>
                 <p>Transformamos negocios con agentes de IA inteligentes que trabajan 24/7. Especialistas en automatización empresarial.</p>
                 <div class="social-links">
                     <div class="social-lock-wrapper">
@@ -543,13 +554,13 @@
             </div>
             <div class="footer-section">
                 <h4>Contacto</h4>
-                <span>📧 albaa@nexus-ai.com</span>
+                <span>📧 hola@nuvora.ai</span>
                 <span>📱 +56933869881</span>
                 <span>🌍 Santiago, Chile</span>
             </div>
         </div>
         <div class="footer-bottom">
-            <p>&copy; 2026 Nexus AI. Todos los derechos reservados.</p>            
+            <p>&copy; 2026 Nuvora. Todos los derechos reservados.</p>            
         </div>
     </footer>
 

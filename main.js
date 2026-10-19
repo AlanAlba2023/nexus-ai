@@ -318,34 +318,6 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// Testimonials Slider
-const track = document.getElementById('testimonialTrack');
-const dots = document.querySelectorAll('.testimonial-dot');
-const prevBtn = document.getElementById('prevTestimonial');
-const nextBtn = document.getElementById('nextTestimonial');
-let currentSlide = 0;
-const totalSlides = 3;
-
-function goToSlide(index) {
-    currentSlide = index;
-    track.style.transform = `translateX(-${currentSlide * 100}%)`;
-    dots.forEach((dot, i) => {
-        dot.classList.toggle('active', i === currentSlide);
-    });
-}
-dots.forEach((dot, i) => {
-    dot.addEventListener('click', () => goToSlide(i));
-});
-prevBtn.addEventListener('click', () => {
-    goToSlide((currentSlide - 1 + totalSlides) % totalSlides);
-});
-nextBtn.addEventListener('click', () => {
-    goToSlide((currentSlide + 1) % totalSlides);
-});
-setInterval(() => {
-    goToSlide((currentSlide + 1) % totalSlides);
-}, 6000);
-
 // FAQ Accordion
 document.querySelectorAll('.faq-question').forEach(question => {
     question.addEventListener('click', () => {

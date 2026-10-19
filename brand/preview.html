@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nuvora — logo candidates</title>
+<style>
+  :root{
+    --void:#070B14; --deep:#0E1628; --aurora:#2DD4BF;
+    --signal:#38BDF8; --nova:#FBBF24; --fog:#93A3B8; --pure:#F7FAFC;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--void);color:var(--pure);padding:48px}
+  h1{font-size:15px;letter-spacing:.22em;text-transform:uppercase;color:var(--fog);font-weight:600;margin:0 0 40px}
+  .row{display:grid;grid-template-columns:200px repeat(3,1fr);align-items:center;border-bottom:1px solid #1b2437;min-height:170px;border-top:1px solid #1b2437}
+  .name{padding-left:8px}
+  .name b{display:block;font-size:14px}
+  .name span{font-size:12px;color:var(--fog)}
+  .cell{display:flex;align-items:center;justify-content:center;height:170px}
+  .dark{background:var(--void);color:var(--pure)}
+  .light{background:var(--pure);color:#0B1220}
+  .sizes{display:flex;align-items:flex-end;gap:22px}
+  .sizes .s{color:var(--fog);font-size:10px}
+  .palette{display:grid;grid-template-columns:repeat(7,1fr);gap:10px;margin-top:48px}
+  .sw{border-radius:6px;height:84px;padding:8px;font-size:10px;font-family:ui-monospace,monospace;display:flex;align-items:flex-end;border:1px solid #1b2437}
+  .lock{display:flex;align-items:center;gap:14px;margin-top:56px;padding:32px;border:1px solid #1b2437;border-radius:10px;color:var(--aurora)}
+  .lock .word{font-size:38px;font-weight:600;letter-spacing:-.02em;color:var(--pure)}
+  .lock .word i{font-style:normal;color:var(--nova)}
+  .cap{font-size:12px;color:var(--fog);margin-top:14px;line-height:1.6;max-width:760px}
+</style>
+</head>
+<body>
+  <h1>Nuvora · logo candidates</h1>
+  <div id="grid"></div>
+
+  <div class="palette">
+    <div class="sw" style="background:#070B14;color:#93A3B8">Void<br>#070B14</div>
+    <div class="sw" style="background:#0E1628;color:#93A3B8">Deep<br>#0E1628</div>
+    <div class="sw" style="background:#2DD4BF;color:#04211d">Aurora<br>#2DD4BF</div>
+    <div class="sw" style="background:#38BDF8;color:#04222e">Signal<br>#38BDF8</div>
+    <div class="sw" style="background:#FBBF24;color:#2b1d00">Nova<br>#FBBF24</div>
+    <div class="sw" style="background:#93A3B8;color:#101826">Fog<br>#93A3B8</div>
+    <div class="sw" style="background:#F7FAFC;color:#4b5563">Pure<br>#F7FAFC</div>
+  </div>
+
+  <div class="lock" id="lock"></div>
+  <p class="cap">
+    The mark must survive at 16 px in a browser tab. If the gap or the dot disappears, the mark is decorative, not a logo.
+    One color, no gradients, no glow — the palette carries the brand, not the logo.
+  </p>
+
+<script>
+const CLOUD = `M19.35 10.04C18.67 6.59 15.64 4 12 4 9.11 4 6.6 5.64 5.35 8.04 2.34 8.36 0 10.91 0 14c0 3.31 2.69 6 6 6h13c2.76 0 5-2.24 5-5 0-2.64-2.05-4.78-4.65-4.96z`;
+
+const SVG = {
+  a:`<g stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M26 74V22"/><path d="M70 74V22"/>
+      <path d="M26 22 43.5 42.7"/><path d="M52.5 53.3 70 74"/></g>
+     <path d="M48 36c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" fill="currentColor"/>`,
+  b:`<path d="M14 48h20l6-18 10 36 8-24 4 6h20" stroke="currentColor" stroke-width="8"
+      stroke-linecap="round" stroke-linejoin="round"/>`,
+  c:`<g stroke="currentColor" stroke-width="8" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M36 26H24v44h12"/><path d="M60 26h12v44H60"/></g>
+     <circle cx="48" cy="48" r="7" fill="currentColor"/>`,
+  d:`<defs><mask id="m-d" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+       <path fill="#fff" transform="translate(12 12) scale(3)" d="${CLOUD}"/>
+       <path stroke="#000" stroke-width="9" stroke-linecap="round" stroke-linejoin="round"
+             d="M24 52h12l5-13 8 27 6-15h15"/></mask></defs>
+     <rect width="96" height="96" fill="currentColor" mask="url(#m-d)"/>`,
+  e:`<defs><mask id="m-e" maskUnits="userSpaceOnUse" x="0" y="0" width="96" height="96">
+       <path fill="#fff" transform="translate(12 12) scale(3)" d="${CLOUD}"/>
+       <path fill="#000" d="M48 30c2 13 5 16 18 18-13 2-16 5-18 18-2-13-5-16-18-18 13-2 16-5 18-18z"/></mask></defs>
+     <rect width="96" height="96" fill="currentColor" mask="url(#m-e)"/>`
+};
+const items = [
+  {k:'d', n:'D · Cloud Pulse', d:'nube + señal viva'},
+  {k:'e', n:'E · Cloud Nova',  d:'nube + estrella'},
+  {k:'a', n:'A · Signal N',    d:'monograma'},
+  {k:'b', n:'B · Pulse',       d:'señal'},
+  {k:'c', n:'C · Bracket',     d:'contenedor'}
+];
+const mk = (k, size) => `<svg viewBox="0 0 96 96" width="${size}" height="${size}" fill="none">${SVG[k]}</svg>`;
+
+const grid = document.getElementById('grid');
+items.forEach(it => {
+  const row = document.createElement('div');
+  row.className = 'row';
+  row.innerHTML = `
+    <div class="name"><b>${it.n}</b><span>${it.d}</span></div>
+    <div class="cell dark">${mk(it.k, 120)}</div>
+    <div class="cell light">${mk(it.k, 120)}</div>
+    <div class="cell dark"><div class="sizes">
+      ${[48,32,16].map(s => `<div style="display:flex;flex-direction:column;align-items:center;gap:8px">
+        ${mk(it.k, s)}<span class="s">${s}px</span></div>`).join('')}
+    </div></div>`;
+  grid.appendChild(row);
+});
+
+document.getElementById('lock').innerHTML = `${mk('d', 46)}<div class="word">Nuv<i>o</i>ra</div>`;
+</script>
+</body>
+</html>

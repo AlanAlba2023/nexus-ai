@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Nuvora — brand sheet</title>
+<style>
+  :root{--void:#070B14;--deep:#0E1628;--aurora:#2DD4BF;--nova:#FBBF24;--fog:#93A3B8;--pure:#F7FAFC}
+  *{box-sizing:border-box}
+  body{margin:0;font-family:Inter,system-ui,sans-serif;background:var(--void);color:var(--pure);padding:40px}
+  h1{font-size:13px;letter-spacing:.24em;text-transform:uppercase;color:var(--fog);margin:0 0 8px}
+  h2{font-size:11px;letter-spacing:.18em;text-transform:uppercase;color:var(--fog);font-weight:600;margin:36px 0 14px}
+  .panel{border:1px solid #1b2437;border-radius:12px;padding:36px;display:flex;align-items:center;gap:28px;flex-wrap:wrap}
+  .panel.light{background:var(--pure);color:#0B1220}
+  .panel.dark{background:var(--void)}
+  .teal{color:var(--aurora)}
+  .tabbar{display:flex;align-items:center;gap:10px;background:#0B1220;border:1px solid #1b2437;border-radius:8px;padding:8px 14px}
+  .tab{display:flex;align-items:center;gap:6px;background:#141c2e;border-radius:6px;padding:6px 10px;font-size:11px;color:var(--fog)}
+  .palette{display:grid;grid-template-columns:repeat(7,1fr);gap:10px}
+  .sw{border-radius:6px;height:76px;padding:8px;font-size:10px;font-family:ui-monospace,monospace;display:flex;align-items:flex-end;border:1px solid #1b2437}
+  .rules{font-size:12px;color:var(--fog);line-height:1.9;max-width:820px}
+  .rules b{color:var(--pure)}
+</style>
+</head>
+<body>
+  <h1>Nuvora · brand sheet</h1>
+
+  <h2>Primary lockup · dark</h2>
+  <div class="panel dark"><div id="l-mono" class="teal"></div></div>
+
+  <h2>Accent lockup · dark</h2>
+  <div class="panel dark"><div id="l-accent"></div></div>
+
+  <h2>Primary lockup · light</h2>
+  <div class="panel light"><div id="l-light"></div></div>
+
+  <h2>Stacked · avatar / square</h2>
+  <div class="panel dark"><div id="l-stacked" class="teal"></div></div>
+
+  <h2>Favicon legibility</h2>
+  <div class="panel dark">
+    <div class="tabbar">
+      <div class="tab"><span id="f32"></span>Nuvora</div>
+      <div class="tab"><span id="f16"></span>Nuvora</div>
+      <div class="tab"><span id="f8"></span>N</div>
+    </div>
+  </div>
+
+  <h2>Palette</h2>
+  <div class="palette">
+    <div class="sw" style="background:#070B14;color:#93A3B8">Void<br>#070B14</div>
+    <div class="sw" style="background:#0E1628;color:#93A3B8">Deep<br>#0E1628</div>
+    <div class="sw" style="background:#2DD4BF;color:#04211d">Aurora<br>#2DD4BF</div>
+    <div class="sw" style="background:#38BDF8;color:#04222e">Signal<br>#38BDF8</div>
+    <div class="sw" style="background:#FBBF24;color:#2b1d00">Nova<br>#FBBF24</div>
+    <div class="sw" style="background:#93A3B8;color:#101826">Fog<br>#93A3B8</div>
+    <div class="sw" style="background:#F7FAFC;color:#4b5563">Pure<br>#F7FAFC</div>
+  </div>
+
+  <h2>Rules</h2>
+  <p class="rules">
+    <b>Clear space:</b> the height of the star on every side.<br>
+    <b>Minimum size:</b> mark 24 px, lockup 96 px wide.<br>
+    <b>One ink:</b> the wordmark is never two colors; the amber lives only in the star.<br>
+    <b>Never:</b> gradient, glow, bevel, outline, rotation, or placing the mark on a busy photo.
+  </p>
+
+<script>
+const MARK = `<g stroke="currentColor" stroke-width="9" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M26 74V22"/><path d="M70 74V22"/>
+    <path d="M26 22 43.5 42.7"/><path d="M52.5 53.3 70 74"/></g>
+  <path d="M48 36c1 8 4 11 12 12-8 1-11 4-12 12-1-8-4-11-12-12 8-1 11-4 12-12z" fill="var(--star, currentColor)"/>`;
+
+const lock = (w) => `<svg viewBox="0 0 396 96" width="${w}" fill="none">
+  ${MARK}
+  <text x="116" y="67" fill="currentColor" font-family="Satoshi,'General Sans',Inter,sans-serif"
+        font-size="52" font-weight="600" letter-spacing="-1.2">Nuvora</text></svg>`;
+
+const stacked = `<svg viewBox="0 0 240 200" width="150" fill="none">${MARK}
+  <text x="120" y="152" fill="currentColor" text-anchor="middle"
+        font-family="Satoshi,'General Sans',Inter,sans-serif" font-size="44" font-weight="600" letter-spacing="-1">Nuvora</text></svg>`;
+
+const fav = (s) => `<svg viewBox="0 0 32 32" width="${s}" height="${s}" fill="none" style="display:block">
+  <g stroke="currentColor" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M8 26V6"/><path d="M24 26V6"/><path d="M8 6 13.2 12.8"/><path d="M18.8 19.2 24 26"/></g>
+  <path d="M16 10.8c.4 3.2 1.6 4.4 4.8 4.8-3.2.4-4.4 1.6-4.8 4.8-.4-3.2-1.6-4.4-4.8-4.8 3.2-.4 4.4-1.6 4.8-4.8z" fill="currentColor"/></svg>`;
+
+document.getElementById('l-mono').innerHTML = lock(400);
+document.getElementById('l-accent').innerHTML = lock(400).replace('var(--star, currentColor)', 'var(--star, currentColor)');
+const accentEl = document.getElementById('l-accent');
+accentEl.style.setProperty('--star', '#FBBF24');
+accentEl.style.color = '#F7FAFC';
+document.getElementById('l-light').innerHTML = lock(400);
+document.getElementById('l-stacked').innerHTML = stacked;
+document.getElementById('f32').innerHTML = fav(32);
+document.getElementById('f16').innerHTML = fav(16);
+document.getElementById('f8').innerHTML = fav(8);
+</script>
+</body>
+</html>

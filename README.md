@@ -1,11 +1,11 @@
-# ⚡ Nexus AI - Agentes Inteligentes
+# Nuvora — Agentes de IA en producción
 
-Plataforma web profesional para Nexus AI - Automatización empresarial con Agentes de IA.
+Sitio web de Nuvora, agencia de IA que diseña, opera y monitorea agentes en producción para empresas.
 
 ## 📁 Estructura del Proyecto
 
 ```
-nexus-ai-project/
+nuvora-site/
 ├── index.html          # HTML principal
 ├── css/
 │   └── styles.css      # Estilos (separado)
@@ -37,7 +37,7 @@ nexus-ai-project/
 npm i -g vercel
 
 # 2. Dentro del directorio del proyecto
-cd nexus-ai-project
+cd nuvora-site
 
 # 3. Deploy
 vercel
@@ -51,10 +51,10 @@ vercel
 # 1. Iniciar git
 git init
 git add .
-git commit -m "Initial commit: Nexus AI website"
+git commit -m "Initial commit: Nuvora website"
 
 # 2. Subir a GitHub
-git remote add origin https://github.com/TuUsuario/nexus-ai.git
+git remote add origin https://github.com/AlanAlba2023/nexus-ai.git
 git branch -M main
 git push -u origin main
 
@@ -68,7 +68,7 @@ git push -u origin main
 
 1. Ir a [vercel.com](https://vercel.com)
 2. Login con GitHub/Google
-3. **Drag & drop** la carpeta `nexus-ai-project`
+3. **Drag & drop** la carpeta `nuvora-site`
 4. ¡Listo! Tu sitio está en vivo
 
 ## 📋 Checklist Pre-Deploy
@@ -105,12 +105,19 @@ npx http-server
 ## 🎨 Colores & Variables CSS
 
 ```css
---primary: #00ff88       /* Verde neón */
---secondary: #00d4ff     /* Cian */
---tertiary: #ff006e      /* Magenta */
---dark: #0a0e27          /* Fondo oscuro */
---darker: #050812        /* Fondo más oscuro */
+--primary: #2DD4BF       /* Aurora (teal) */
+--secondary: #38BDF8     /* Signal (cyan) */
+--tertiary: #FBBF24      /* Nova (amber) */
+--dark: #070B14          /* Void */
+--darker: #050810        /* Void-2 */
 ```
+
+## Brand assets
+
+- `brand/nuvora-mark.svg` — símbolo (una tinta)
+- `brand/nuvora-lockup.svg` — lockup horizontal
+- `brand/nuvora-favicon.svg` — favicon 32px
+- `brand/brand-sheet.html` — hoja de marca
 
 ## 📊 Performance
 
@@ -121,16 +128,16 @@ npx http-server
 
 ## 📝 Información de Contacto
 
-**Alan Alba** (Nexus AI)
-- 📧 Email: alan@nexusai.com
+**Alan Alba** (Nuvora)
+- 📧 Email: hola@nuvora.ai (placeholder, dominio pendiente)
 - 📱 Teléfono: +56 9 XXXX XXXX
 - 📍 Santiago, Chile
 
 ## 📄 Licencia
 
-© 2024 Nexus AI. Todos los derechos reservados.
+© 2026 Nuvora. Todos los derechos reservados.
 
 ---
 
-**Última actualización:** Junio 2024
-**Versión:** 1.0.0
+**Última actualización:** Octubre 2026
+**Versión:** 2.0.0

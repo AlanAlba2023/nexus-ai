@@ -84,50 +84,71 @@ document.querySelectorAll('a, button, .card').forEach(el => {
     el.addEventListener('mouseleave', () => cursorGlow.classList.remove('hovering'));
 });
 
-// Particle Canvas
+// Particle Canvas — textura de fondo
 const canvas = document.getElementById('particleCanvas');
 const ctx = canvas.getContext('2d');
-let particles = [];
-const particleCount = 60;
-const connectionDistance = 150;
-let animationId;
+const reducedMotionQuery = window.matchMedia('(prefers-reduced-motion: reduce)');
 
-function resizeCanvas() {
-    canvas.width = window.innerWidth;
-    canvas.height = window.innerHeight;
+let particles = [];
+let viewportW = window.innerWidth;
+let viewportH = window.innerHeight;
+let connectionDistance = 220;
+let animationId = null;
+
+function isLightTheme() {
+    return document.documentElement.getAttribute('data-theme') === 'light';
 }
-resizeCanvas();
-window.addEventListener('resize', resizeCanvas);
+// En fondo claro las partículas necesitan más peso para no desaparecer.
+function particleColor(alpha) {
+    const a = isLightTheme() ? Math.min(1, alpha * 1.25) : alpha;
+    return isLightTheme() ? `rgba(13,148,136, ${a})` : `rgba(45,212,191, ${a})`;
+}
 
 class Particle {
     constructor() {
-        this.x = Math.random() * canvas.width;
-        this.y = Math.random() * canvas.height;
-        this.vx = (Math.random() - 0.5) * 0.5;
-        this.vy = (Math.random() - 0.5) * 0.5;
-        this.radius = Math.random() * 2 + 1;
+        this.x = Math.random() * viewportW;
+        this.y = Math.random() * viewportH;
+        this.vx = (Math.random() - 0.5) * 0.34;
+        this.vy = (Math.random() - 0.5) * 0.34;
+        this.radius = Math.random() * 1.5 + 0.9;
+        this.alpha = Math.random() * 0.35 + 0.45;
     }
     update() {
         this.x += this.vx;
         this.y += this.vy;
-        if (this.x < 0 || this.x > canvas.width) this.vx *= -1;
-        if (this.y < 0 || this.y > canvas.height) this.vy *= -1;
+        if (this.x < 0 || this.x > viewportW) this.vx *= -1;
+        if (this.y < 0 || this.y > viewportH) this.vy *= -1;
     }
     draw() {
         ctx.beginPath();
         ctx.arc(this.x, this.y, this.radius, 0, Math.PI * 2);
-        ctx.fillStyle = 'rgba(0, 255, 136, 0.5)';
+        ctx.fillStyle = particleColor(this.alpha);
         ctx.fill();
     }
 }
 
-function initParticles() {
-    particles = [];
-    for (let i = 0; i < particleCount; i++) {
-        particles.push(new Particle());
-    }
+// La densidad importa: pocas partículas muy separadas no forman red, forman ruido.
+function particleBudget() {
+    const area = viewportW * viewportH;
+    return Math.max(24, Math.min(58, Math.round(area / 38000)));
 }
-initParticles();
+
+function resizeCanvas() {
+    const dpr = Math.min(window.devicePixelRatio || 1, 2);
+    viewportW = window.innerWidth;
+    viewportH = window.innerHeight;
+    canvas.width = Math.round(viewportW * dpr);
+    canvas.height = Math.round(viewportH * dpr);
+    canvas.style.width = viewportW + 'px';
+    canvas.style.height = viewportH + 'px';
+    ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+    const count = particleBudget();
+    const spacing = Math.sqrt((viewportW * viewportH) / count);
+    connectionDistance = Math.max(120, Math.min(230, spacing * 1.15));
+
+    particles = Array.from({ length: count }, () => new Particle());
+}
 
 function drawConnections() {
     for (let i = 0; i < particles.length; i++) {
@@ -136,11 +157,11 @@ function drawConnections() {
             const dy = particles[i].y - particles[j].y;
             const distance = Math.sqrt(dx * dx + dy * dy);
             if (distance < connectionDistance) {
-                const opacity = (1 - distance / connectionDistance) * 0.2;
+                const opacity = (1 - distance / connectionDistance) * 0.32;
                 ctx.beginPath();
                 ctx.moveTo(particles[i].x, particles[i].y);
                 ctx.lineTo(particles[j].x, particles[j].y);
-                ctx.strokeStyle = `rgba(0, 255, 136, ${opacity})`;
+                ctx.strokeStyle = particleColor(opacity);
                 ctx.lineWidth = 1;
                 ctx.stroke();
             }
@@ -148,16 +169,60 @@ function drawConnections() {
     }
 }
 
-function animateParticles() {
-    ctx.clearRect(0, 0, canvas.width, canvas.height);
-    particles.forEach(p => {
+function renderParticles() {
+    ctx.clearRect(0, 0, viewportW, viewportH);
+    for (const p of particles) {
         p.update();
         p.draw();
-    });
+    }
     drawConnections();
+}
+
+function animateParticles() {
+    renderParticles();
     animationId = requestAnimationFrame(animateParticles);
 }
-animateParticles();
+
+function startParticles() {
+    if (animationId !== null) return;
+    if (reducedMotionQuery.matches) {
+        renderParticles();
+        return;
+    }
+    animationId = requestAnimationFrame(animateParticles);
+}
+
+function stopParticles() {
+    if (animationId !== null) {
+        cancelAnimationFrame(animationId);
+        animationId = null;
+    }
+}
+
+resizeCanvas();
+startParticles();
+
+window.addEventListener('resize', () => {
+    resizeCanvas();
+    if (reducedMotionQuery.matches) renderParticles();
+});
+
+document.addEventListener('visibilitychange', () => {
+    if (document.hidden) {
+        stopParticles();
+    } else {
+        startParticles();
+    }
+});
+
+reducedMotionQuery.addEventListener('change', () => {
+    if (reducedMotionQuery.matches) {
+        stopParticles();
+        renderParticles();
+    } else {
+        startParticles();
+    }
+});
 
 // Typewriter Effect
 const typewriterText = document.getElementById('typewriterText');

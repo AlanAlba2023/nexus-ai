@@ -128,7 +128,8 @@ header.scrolled { padding: 0.6rem 1.5rem; box-shadow: 0 4px 30px var(--shadow-ca
     -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text;
     letter-spacing: 1px; white-space: nowrap; flex-shrink: 0; cursor: pointer; position: relative; text-decoration: none;
 }
-.logo-mark { color: var(--primary); -webkit-text-fill-color: var(--primary); flex: 0 0 auto; }
+.logo-mark { color: var(--tertiary); -webkit-text-fill-color: var(--tertiary); flex: 0 0 auto; }
+.logo-mark .logo-spark { color: var(--text-bright); -webkit-text-fill-color: var(--text-bright); }
 .loading-logo svg, .footer-brand h4 svg { vertical-align: -0.15em; margin-right: 0.45rem; }
 .logo::after { content: ''; position: absolute; bottom: -2px; left: 0; width: 100%; height: 2px;
     background: linear-gradient(90deg, var(--primary), var(--secondary)); transform: scaleX(0);

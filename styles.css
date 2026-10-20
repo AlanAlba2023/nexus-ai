@@ -540,28 +540,6 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; text-align: center
 }
 
 
-/* Tarjetas de servicios con giro: el frente resume, el dorso da el detalle */
-#services .flip-card { background: none; border: none; padding: 0; min-height: 340px;
-    perspective: 1400px; transform-style: preserve-3d; }
-#services .flip-card:hover { transform: none; box-shadow: none; border: none; }
-.flip-inner { position: relative; width: 100%; height: 100%; transform-style: preserve-3d;
-    transition: transform 0.65s cubic-bezier(0.2, 0.8, 0.2, 1); }
-#services .flip-card.is-flipped .flip-inner { transform: rotateY(180deg); }
-.flip-face { position: absolute; inset: 0; display: flex; flex-direction: column; padding: 1.5rem;
-    background: var(--dark-card); border: 1px solid rgba(56,189,248,0.2); border-radius: var(--radius-md);
-    -webkit-backface-visibility: hidden; backface-visibility: hidden; overflow: hidden; }
-.flip-back { transform: rotateY(180deg); }
-#services .flip-card:hover .flip-face { border-color: var(--secondary); box-shadow: 0 20px 50px rgba(56,189,248,0.1); }
-.flip-trigger, .flip-close { background: none; border: none; padding: 0; font: inherit; cursor: pointer; }
-.flip-trigger:hover, .flip-close:hover { color: var(--primary); }
-.flip-list { list-style: none; margin: 0; padding: 0; flex-grow: 1;
-    display: flex; flex-direction: column; gap: 0.65rem; }
-.flip-list li { position: relative; padding-left: 1rem; font-size: 0.9rem; line-height: 1.55; color: var(--text-muted); }
-.flip-list li::before { content: ''; position: absolute; left: 0; top: 0.55rem; width: 5px; height: 5px;
-    border-radius: 50%; background: var(--primary); }
-.flip-actions { display: flex; align-items: center; justify-content: space-between; gap: 1rem; margin-top: 1rem; }
-.flip-close { color: var(--text-dim); font-size: 1.15rem; line-height: 1; }
-.flip-card.is-flipped { z-index: 3; }
 .about-content { display: grid; grid-template-columns: 1fr 1fr; gap: 2.5rem; align-items: center; }
 .about-text h3 { font-size: clamp(1.4rem, 3vw, 1.8rem); color: var(--text-bright); margin-bottom: 0.75rem; font-weight: 700; }
 .about-text p { color: var(--text-muted); margin-bottom: 0.75rem; line-height: 1.7; font-size: 0.95rem; }
@@ -959,7 +937,6 @@ footer { border-top: 1px solid var(--border); padding: 3rem 1.5rem 2rem; color: 
 }
 @media (prefers-reduced-motion: reduce) {
     #particleCanvas { display: none; }
-    .flip-inner { transition: none; }
 }
 @media (pointer: coarse) {
     .cursor-glow { display: none; }

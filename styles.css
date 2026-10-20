@@ -263,6 +263,283 @@ h2 { font-size: clamp(1.8rem, 4vw, 2.8rem); font-weight: 800; text-align: center
 .card-link svg { width: 16px; height: 16px; transition: transform var(--transition-fast); }
 .card-link:hover svg { transform: translateX(4px); }
 
+/* Services (Claude Design, scoped to #services) */
+#services {
+  padding: 96px 24px;
+}
+#services .services-inner {
+  max-width: 1152px;
+  margin: 0 auto;
+}
+#services .services-header {
+  max-width: 640px;
+  margin: 0 auto 48px;
+  text-align: center;
+}
+#services .section-tag {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 12px;
+  border: 1px solid var(--border);
+  border-radius: 999px;
+  font: 500 12px/1 "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--primary);
+}
+#services .section-tag::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  border-radius: 50%;
+  background: var(--tertiary);
+}
+#services h2 {
+  margin: 16px 0 12px;
+  font-family: "Satoshi", "General Sans", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: clamp(32px, 4vw, 48px);
+  line-height: 1.1;
+  letter-spacing: -0.02em;
+  color: var(--text-bright);
+  text-wrap: balance;
+}
+#services .services-lead {
+  margin: 0;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+
+
+/* Grid: 3 / 2 / 1 */
+#services .grid {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px;
+}
+
+
+/* Card */
+#services .card {
+  display: flex;
+  flex-direction: column;
+  padding: 28px;
+  background: var(--dark-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  transition: border-color 0.2s ease, box-shadow 0.2s ease, transform 0.2s ease;
+}
+#services .card:hover,
+#services .card:focus-within {
+  border-color: rgba(56, 189, 248, 0.5);
+  box-shadow: 0 16px 40px -20px rgba(56, 189, 248, 0.35);
+}
+#services .card:hover {
+  transform: translateY(-2px);
+}
+#services .card-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+  margin-bottom: 20px;
+}
+#services .card-icon {
+  display: grid;
+  place-items: center;
+  width: 44px;
+  height: 44px;
+  flex: none;
+  border: 1px solid var(--border);
+  border-radius: 10px;
+  background: rgba(45, 212, 191, 0.06);
+  color: var(--primary);
+}
+#services .card-icon svg {
+  width: 24px;
+  height: 24px;
+}
+#services .card-index {
+  font: 500 11px/1 "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: var(--text-dim);
+}
+#services .card-service {
+  margin: 0 0 6px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--secondary);
+}
+#services .card h3 {
+  margin: 0 0 10px;
+  font-family: "Satoshi", "General Sans", system-ui, sans-serif;
+  font-weight: 700;
+  font-size: 20px;
+  line-height: 1.25;
+  color: var(--text-bright);
+  text-wrap: balance;
+}
+#services .card-result {
+  margin: 0 0 20px;
+  font-size: 15px;
+  line-height: 1.55;
+  color: var(--text-muted);
+  text-wrap: pretty;
+}
+#services .card-points {
+  display: grid;
+  gap: 10px;
+  margin: 0 0 24px;
+  padding: 16px 0 0;
+  border-top: 1px solid rgba(56, 189, 248, 0.12);
+  list-style: none;
+}
+#services .card-points li {
+  display: grid;
+  grid-template-columns: 14px 1fr;
+  gap: 10px;
+  font-size: 14px;
+  line-height: 1.5;
+  color: var(--text-bright);
+}
+#services .card-points li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  margin: 7px 0 0 2px;
+  border-radius: 2px;
+  background: var(--primary);
+}
+
+
+/* Footer: optional expand + CTA */
+#services .card-foot {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 16px;
+  margin-top: auto;
+}
+#services .card-more {
+  width: 100%;
+}
+#services .card-more summary {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  cursor: pointer;
+  list-style: none;
+  font: 500 12px/1 "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--text-muted);
+  border-radius: 6px;
+}
+#services .card-more summary::-webkit-details-marker {
+  display: none;
+}
+#services .card-more summary:hover {
+  color: var(--text-bright);
+}
+#services .card-more summary svg {
+  width: 16px;
+  height: 16px;
+  transition: transform 0.2s ease;
+}
+#services .card-more[open] summary svg {
+  transform: rotate(180deg);
+}
+#services .card-more ul {
+  display: grid;
+  gap: 6px;
+  margin: 10px 0 0;
+  padding: 12px 14px 12px 30px;
+  border: 1px solid rgba(56, 189, 248, 0.12);
+  border-radius: 8px;
+  background: rgba(56, 189, 248, 0.04);
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-muted);
+}
+#services .card-cta {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 44px;
+  padding: 0 18px;
+  border: 1px solid rgba(45, 212, 191, 0.45);
+  border-radius: 999px;
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--primary);
+  text-decoration: none;
+  transition: background-color 0.2s ease, border-color 0.2s ease;
+}
+#services .card-cta svg {
+  width: 18px;
+  height: 18px;
+  transition: transform 0.2s ease;
+}
+#services .card-cta:hover {
+  background: rgba(45, 212, 191, 0.1);
+  border-color: var(--primary);
+}
+#services .card-cta:hover svg {
+  transform: translateX(3px);
+}
+#services .card-cta:focus-visible,
+#services .card-more summary:focus-visible {
+  outline: 2px solid var(--secondary);
+  outline-offset: 3px;
+}
+#services @keyframes services-in {
+  from { opacity: 0; transform: translateY(16px); }
+}
+
+@supports (animation-timeline: view()) {
+@media (prefers-reduced-motion: no-preference) {
+#services .card {
+      animation: services-in linear both;
+      animation-timeline: view();
+      animation-range: entry 0% entry 35%;
+    }
+}
+}
+
+
+@media (max-width: 1024px) {
+#services .grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+@media (max-width: 640px) {
+#services { padding: 64px 16px; }
+#services .services-header { margin-bottom: 32px; }
+#services .grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+#services .card { padding: 22px; }
+#services .card-cta { align-self: stretch; justify-content: center; }
+}
+
+
+@media (prefers-reduced-motion: reduce) {
+#services .card,
+#services .card-cta,
+#services .card-cta svg,
+#services .card-more summary svg {
+    transition: none;
+    animation: none;
+  }
+#services .card:hover,
+#services .card-cta:hover svg {
+    transform: none;
+  }
+}
+
+
 /* Tarjetas de servicios con giro: el frente resume, el dorso da el detalle */
 #services .flip-card { background: none; border: none; padding: 0; min-height: 340px;
     perspective: 1400px; transform-style: preserve-3d; }

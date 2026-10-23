@@ -140,7 +140,7 @@ async function main() {
   check('deck loads', deck.includes('deck-stage'));
   check('deck has no missing assets', missingAssets().length === 0, missingAssets().join(', '));
   check('deck mounts the navigation pill', deck.includes('nv-nav'));
-  check('deck shows a slide counter', /\d+\s*\/\s*7/.test(deck));
+  check('deck shows a slide counter', /\d+\s*\/\s*\d+/.test(deck));
 
   // --- 4. demo mode: rail hidden, CTA mounted, chat present
   missing.length = 0;

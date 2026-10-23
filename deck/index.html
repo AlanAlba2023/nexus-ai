@@ -36,7 +36,7 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
   <div style="display:flex;flex-direction:column;min-width:0">
     <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
       <span style="width:44px;height:1px;background:#22D3EE"></span>
-      <span>Embudo de captación</span>
+      <span>Cómo funciona</span>
     </div>
     <h1 style="margin:44px 0 0;font-family:var(--font-heading);font-weight:500;font-size:124px;line-height:0.98;letter-spacing:-0.04em;text-wrap:balance">Captación de leads con IA</h1>
     <p style="margin:40px 0 0;font-size:40px;line-height:1.3;color:#94A3B8;max-width:880px;text-wrap:pretty">Del primer clic al handoff humano, sin perder un solo interesado</p>
@@ -54,11 +54,11 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
     </div>
     <div style="display:flex;align-items:center;gap:20px;padding:0 0 0 48px;height:104px">
       <span style="width:1.5px;height:100%;background:linear-gradient(to bottom, rgba(34,211,238,0.2), #22D3EE)"></span>
-      <span style="display:flex;align-items:center;gap:12px;font-size:24px;color:#67E8F9"><i class="ph ph-robot" style="font-size:28px"></i><span>Agente calificador · 5 / 5 slots</span></span>
+      <span style="display:flex;align-items:center;gap:12px;font-size:24px;color:#67E8F9"><i class="ph ph-robot" style="font-size:28px"></i><span>El agente ya sabe qué necesita</span></span>
     </div>
     <div style="border:1px solid #22D3EE;border-radius:14px;background:#0F1B2E;box-shadow:0 0 40px rgba(34,211,238,0.18);padding:32px;display:flex;flex-direction:column;gap:20px">
       <div style="display:flex;align-items:center;justify-content:space-between">
-        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Lead calificado</span>
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Interesado calificado</span>
         <i class="ph ph-identification-card" style="font-size:32px;color:#22D3EE"></i>
       </div>
       <div style="display:flex;flex-direction:column;gap:6px">
@@ -98,7 +98,7 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
     <span style="width:44px;height:1px;background:#22D3EE"></span>
     <span>El problema</span>
   </div>
-  <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em;max-width:1500px;text-wrap:balance">El lead no se pierde por falta de interés. Se pierde por falta de respuesta.</h2>
+  <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em;max-width:1500px;text-wrap:balance">El interesado no se pierde por falta de interés. Se pierde por falta de respuesta.</h2>
   <div style="margin-top:80px;display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr) 64px minmax(0,1fr);align-items:center">
     <div style="border:1px solid rgba(232,237,245,0.12);border-radius:14px;padding:40px;display:flex;flex-direction:column;gap:32px;background:#111A2C">
       <i class="ph ph-chat-circle-dots" style="font-size:48px;color:#22D3EE"></i>
@@ -141,7 +141,7 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
     <span style="width:44px;height:1px;background:#22D3EE"></span>
     <span>El flujo</span>
   </div>
-  <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em">Un solo embudo, cinco estaciones</h2>
+  <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em">Del mensaje a tu vendedor, en cinco pasos</h2>
   <div style="margin-top:56px;position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))">
     <div style="position:absolute;left:30%;right:10%;top:52px;height:1.5px;background:rgba(34,211,238,0.45)"></div>
     <div style="position:absolute;left:30%;top:52px;height:1.5px;width:{{ progress }};background:#22D3EE;transition:width .45s ease"></div>
@@ -159,22 +159,22 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
     <button onClick="{{ go1 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st1.op }};transition:opacity .3s ease">
       <span style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st1.bg }};border:1px solid {{ st1.bc }};box-shadow:{{ st1.glow }};transition:all .3s ease"><i class="ph ph-whatsapp-logo" style="font-size:44px;color:{{ st1.ic }}"></i></span>
       <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">02</span>
-      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">WhatsApp Business</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">WhatsApp</span>
     </button>
     <button onClick="{{ go2 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st2.op }};transition:opacity .3s ease">
       <span style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st2.bg }};border:1px solid {{ st2.bc }};box-shadow:{{ st2.glow }};transition:all .3s ease"><i class="ph ph-robot" style="font-size:44px;color:{{ st2.ic }}"></i></span>
       <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">03</span>
-      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Agente calificador</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Agente</span>
     </button>
     <button onClick="{{ go3 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st3.op }};transition:opacity .3s ease">
       <span style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st3.bg }};border:1px solid {{ st3.bc }};box-shadow:{{ st3.glow }};transition:all .3s ease"><i class="ph ph-identification-card" style="font-size:44px;color:{{ st3.ic }}"></i></span>
       <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">04</span>
-      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Ficha de lead</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Ficha</span>
     </button>
     <button onClick="{{ go4 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st4.op }};transition:opacity .3s ease">
       <span style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st4.bg }};border:1px solid {{ st4.bc }};box-shadow:{{ st4.glow }};transition:all .3s ease"><i class="ph ph-handshake" style="font-size:44px;color:{{ st4.ic }}"></i></span>
       <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">05</span>
-      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Handoff humano</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Vendedor</span>
     </button>
   </div>
   <div style="margin-top:48px;border:1px solid rgba(232,237,245,0.12);border-radius:14px;background:#111A2C;padding:40px 56px;min-height:280px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:start">
@@ -185,37 +185,37 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
           <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px">
             <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
               <span style="display:flex;align-items:center;gap:14px;font-family:var(--font-heading);font-weight:500;font-size:32px"><i class="ph ph-globe-simple" style="color:#22D3EE"></i><span>Web</span></span>
-              <p style="margin:0;font-size:28px;line-height:1.35;color:#E8EDF5;text-wrap:pretty">Botón con mensaje prellenado. El visitante llega a WhatsApp sabiendo de qué landing viene.</p>
+              <p style="margin:0;font-size:28px;line-height:1.35;color:#E8EDF5;text-wrap:pretty">Desde el botón de tu web o desde un anuncio. No tienen que instalar nada ni cambiar de app.</p>
             </div>
             <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
               <span style="display:flex;align-items:center;gap:14px;font-family:var(--font-heading);font-weight:500;font-size:32px"><i class="ph ph-meta-logo" style="color:#22D3EE"></i><span>Meta</span></span>
-              <p style="margin:0;font-size:28px;line-height:1.35;color:#E8EDF5;text-wrap:pretty">Anuncios click-to-WhatsApp. El webhook de Cloud API entrega el objeto referral con el anuncio de origen. El lead no escribe nada para dar contexto.</p>
+              <p style="margin:0;font-size:28px;line-height:1.35;color:#E8EDF5;text-wrap:pretty">Si llegan desde un anuncio de Instagram o Facebook, el agente ya sabe qué anuncio los trajo. No se lo tienen que explicar.</p>
             </div>
           </div>
         </div>
       </sc-if>
       <sc-if value="{{ is1 }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
-          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 02 · WhatsApp Business</span>
-          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Punto de convergencia: web y Meta llegan al mismo número vía Cloud API. Cada mensaje entra a un webhook, no a un celular, y alimenta al mismo agente y a la misma ficha.</p>
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 02 · WhatsApp</span>
+          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Les contestamos en el mismo WhatsApp que ya usan todos los días. Un solo número atiende todo, y nada queda sin responder.</p>
         </div>
       </sc-if>
       <sc-if value="{{ is2 }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
-          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 03 · Agente calificador</span>
-          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Vive en Nuvora. Conversa y completa slots: necesidad, urgencia, presupuesto, tamaño del negocio, quién decide, canal preferido.</p>
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 03 · Agente</span>
+          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Pregunta lo justo para entender qué necesita y si puede comprarlo. Conversa como una persona: nunca llena un formulario.</p>
         </div>
       </sc-if>
       <sc-if value="{{ is3 }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
-          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 04 · Ficha de lead</span>
-          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">El agente arma un registro estructurado y lo entrega al cliente por su canal: WhatsApp, Slack o CRM.</p>
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 04 · Ficha</span>
+          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Te llega un resumen claro: quién es, qué necesita y qué tan listo está para comprar. Lo suficiente para llamar y cerrar.</p>
         </div>
       </sc-if>
       <sc-if value="{{ is4 }}" hint-placeholder-val="{{ false }}">
         <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
-          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 05 · Handoff humano</span>
-          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Cuando el lead está caliente o pide hablar con una persona, el vendedor entra con la ficha ya armada.</p>
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 05 · Vendedor</span>
+          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Cuando está listo para comprar, lo toma una persona. El agente no cierra ventas: las deja servidas.</p>
         </div>
       </sc-if>
     </div>
@@ -253,7 +253,7 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
     <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em">Así conversa el agente</h2>
     <div style="margin-top:40px;border:1px solid rgba(232,237,245,0.12);border-radius:14px;background:#111A2C;padding:32px 40px;display:flex;flex-direction:column;gap:8px">
       <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:20px">
-        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Slots del lead</span>
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Lo que va averiguando</span>
         <span style="font-size:24px;color:#67E8F9;font-variant-numeric:normal">{{ slotCount }}</span>
       </div>
       <div style="display:grid;grid-template-columns:40px 220px minmax(0,1fr);align-items:center;padding:11px 0;border-top:1px solid rgba(232,237,245,0.08)">
@@ -387,14 +387,14 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
         </div>
       </div>
       <div style="padding:18px 36px;display:flex;flex-direction:column;gap:10px">
-        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Score</span>
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Prioridad</span>
         <span style="font-family:var(--font-heading);font-weight:500;font-size:40px;letter-spacing:-0.02em;color:#22D3EE">Tibio alto</span>
         <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
           <span style="height:10px;border-radius:5px;background:#22D3EE"></span>
           <span style="height:10px;border-radius:5px;background:#22D3EE"></span>
           <span style="height:10px;border-radius:5px;background:rgba(232,237,245,0.12)"></span>
         </div>
-        <span style="font-size:24px;line-height:1.3;color:#CBD5E1">Dolor claro y alto volumen; decisora identificada, falta rango de presupuesto.</span>
+        <span style="font-size:24px;line-height:1.3;color:#CBD5E1">Dolor claro y alto volumen; ya sabemos quién decide, falta el rango de presupuesto.</span>
       </div>
     </div>
     <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.5fr) minmax(0,1.35fr)">
@@ -415,7 +415,7 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
           <span style="color:#94A3B8">Necesidad</span><span>Atención fuera de horario</span>
           <span style="color:#94A3B8">Urgencia</span><span>Alta</span>
           <span style="color:#94A3B8">Presupuesto</span><span>Sin rango definido · abierto a propuesta</span>
-          <span style="color:#94A3B8">Decisor</span><span>Directora + socio</span>
+          <span style="color:#94A3B8">Quién decide</span><span>Directora + socio</span>
         </div>
       </div>
       <div style="padding:16px 36px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid rgba(232,237,245,0.08)">
@@ -462,20 +462,20 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
   <div style="margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px">
     <div style="border:1px solid rgba(232,237,245,0.12);border-radius:14px;background:#111A2C;padding:40px 48px;display:flex;flex-direction:column;gap:22px">
       <div style="display:flex;align-items:center;gap:16px;padding-bottom:8px"><i class="ph ph-robot" style="font-size:36px;color:#94A3B8"></i><span style="font-family:var(--font-heading);font-weight:500;font-size:34px">El agente cierra su parte cuando</span></div>
-      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-check" style="color:#94A3B8"></i><span>Los cinco slots están completos</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-check" style="color:#94A3B8"></i><span>Tiene todo lo necesario para vender</span></div>
       <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-check" style="color:#94A3B8"></i><span>El interesado deja un correo de contacto</span></div>
-      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-check" style="color:#94A3B8"></i><span>El score está calculado y priorizado</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-check" style="color:#94A3B8"></i><span>La prioridad ya está calculada</span></div>
     </div>
     <div style="border:1px solid rgba(34,211,238,0.45);border-radius:14px;background:#111A2C;padding:40px 48px;display:flex;flex-direction:column;gap:16px">
       <div style="display:flex;align-items:center;gap:16px;padding-bottom:8px"><i class="ph ph-user-switch" style="font-size:36px;color:#22D3EE"></i><span style="font-family:var(--font-heading);font-weight:500;font-size:34px">El ejecutivo entra cuando</span></div>
       <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-arrow-bend-up-right" style="color:#22D3EE"></i><span>Recibe la ficha completa</span></div>
-      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-arrow-bend-up-right" style="color:#22D3EE"></i><span>El score define prioridad y velocidad de contacto</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-arrow-bend-up-right" style="color:#22D3EE"></i><span>Lo más urgente se contacta primero</span></div>
       <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-arrow-bend-up-right" style="color:#22D3EE"></i><span>El interesado pide una persona en cualquier momento, y ahí se corta la automatización</span></div>
     </div>
   </div>
   <div style="margin-top:32px;border-top:1px solid rgba(232,237,245,0.12);border-bottom:1px solid rgba(232,237,245,0.12);padding:28px 0;display:flex;align-items:center;gap:20px">
     <i class="ph ph-identification-card" style="font-size:40px;color:#22D3EE"></i>
-    <span style="font-size:32px;white-space:nowrap">Todo lead calificado se entrega. El score decide cuán rápido.</span>
+    <span style="font-size:32px;white-space:nowrap">Todo interesado calificado se entrega. La prioridad decide a quién llamar primero.</span>
   </div>
   <div style="position:absolute;left:120px;right:120px;bottom:52px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#94A3B8">
     <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:9px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:24px;color:#F2B824">N</span><span style="font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:#D9DCE3">Nuvora</span></span>
@@ -500,7 +500,7 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
     <span>Próximo paso</span>
   </div>
   <h2 style="margin:48px 0 0;font-family:var(--font-heading);font-weight:500;font-size:116px;line-height:1.02;letter-spacing:-0.035em;max-width:1400px;text-wrap:balance">Cada interesado, calificado y entregado.</h2>
-  <p style="margin:40px 0 0;font-size:40px;line-height:1.3;color:#94A3B8">Implementado sobre WhatsApp Business Cloud API y n8n.</p>
+  <p style="margin:40px 0 0;font-size:40px;line-height:1.3;color:#94A3B8">Funciona sobre el WhatsApp oficial de Meta.</p>
   <div style="margin-top:72px;display:flex">
     <a class="btn btn-primary" href="#" style="font-size:32px;padding:24px 40px;gap:16px;border-radius:10px;box-shadow:0 0 28px rgba(34,211,238,0.25)"><i class="ph ph-calendar-check"></i><span>Agendar diagnóstico</span></a>
   </div>

@@ -350,7 +350,7 @@ function showToast(message, type = 'success') {
 
 // Demo Button
 document.getElementById('demoBtn').addEventListener('click', () => {
-    window.location.href = '/deck?demo=1#4';
+    window.open('/deck?demo=1#4', '_blank', 'noopener');
 });
 
 // Scroll to Top

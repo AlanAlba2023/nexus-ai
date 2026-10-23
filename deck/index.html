@@ -648,7 +648,11 @@ class Component extends DCLogic {
   function sections() { return doc.querySelectorAll('deck-stage > section'); }
 
   function render() {
-    if (DEMO) { updateCta(); return; }
+    if (DEMO) {
+      updateCta();
+      if (idx === 2) { startStations(); } else { stopStations(); }
+      return;
+    }
     var c = doc.getElementById('nv-count');
     if (!c) return;
     c.textContent = (idx + 1) + ' / ' + total;
@@ -674,6 +678,35 @@ class Component extends DCLogic {
   }
 
   var WA_URL = 'https://wa.me/56933869881?text=Hola%20Nuvora%2C%20vi%20la%20demo%20y%20quiero%20algo%20as%C3%AD%20en%20mi%20negocio';
+
+  var stTimer = null, stDone = false, stAuto = false;
+
+  function stopStations() {
+    if (stTimer) { clearInterval(stTimer); stTimer = null; }
+  }
+
+  function startStations() {
+    if (stTimer || stDone) return;
+    var step = 0;
+    stTimer = setInterval(function () {
+      var sec = doc.querySelector('deck-stage > section[data-deck-active]');
+      var next = sec && sec.querySelector('button[aria-label="Estación siguiente"]');
+      if (!next) { stopStations(); return; }
+      stAuto = true;
+      next.click();
+      stAuto = false;
+      step++;
+      if (step >= 4) { stopStations(); stDone = true; }
+    }, 2500);
+  }
+
+  if (DEMO) {
+    doc.addEventListener('click', function (e) {
+      if (stAuto) return;
+      var sec = doc.querySelector('deck-stage > section[data-deck-active]');
+      if (sec && e.target && sec.contains(e.target)) { stopStations(); stDone = true; }
+    }, true);
+  }
 
   function updateCta() {
     var a = doc.getElementById('nv-cta');

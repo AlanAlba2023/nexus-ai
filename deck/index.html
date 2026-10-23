@@ -634,9 +634,23 @@ class Component extends DCLogic {
   #nv-nav button:hover{background:rgba(34,211,238,.16);color:#67E8F9}
   #nv-nav button:disabled{opacity:.25;cursor:default;background:none;color:#94A3B8}
   #nv-count{font-size:15px;letter-spacing:.04em;font-variant-numeric:normal;color:#94A3B8;min-width:60px;text-align:center}
-  #nv-cta{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:2147483000;display:inline-flex;align-items:center;gap:12px;padding:14px 30px;border-radius:999px;background:#22D3EE;color:#0B1220;font-family:"Inter Tight",system-ui,sans-serif;font-weight:600;font-size:17px;letter-spacing:.01em;text-decoration:none;box-shadow:0 10px 30px rgba(34,211,238,.32);transition:background .15s ease,transform .15s ease}
-  #nv-cta:hover{background:#67E8F9;color:#0B1220;transform:translateX(-50%) translateY(-2px)}
-  @media print{#nv-nav,#nv-cta{display:none!important}}
+  #nv-cta{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:2147483000;display:inline-flex;align-items:center;gap:12px;padding:clamp(10px,1.3vh,14px) clamp(18px,2.2vw,30px);border-radius:999px;background:#22D3EE;color:#0B1220;font-family:"Inter Tight",system-ui,sans-serif;font-weight:600;font-size:clamp(13px,1.4vw,17px);letter-spacing:.01em;text-decoration:none;white-space:nowrap;box-shadow:0 10px 30px rgba(34,211,238,.32);transition:background .15s ease,transform .15s ease}
+  #nv-cta:hover{background:#67E8F9;color:#0B1220}
+  #nv-cta.nv-pulse{animation:nv-pulse 1.9s ease-out infinite}
+  @keyframes nv-pulse{
+    0%{box-shadow:0 10px 30px rgba(34,211,238,.32),0 0 0 0 rgba(34,211,238,.6)}
+    70%{box-shadow:0 10px 30px rgba(34,211,238,.32),0 0 0 20px rgba(34,211,238,0)}
+    100%{box-shadow:0 10px 30px rgba(34,211,238,.32),0 0 0 0 rgba(34,211,238,0)}
+  }
+  #nv-rotate{display:none;position:fixed;inset:0;z-index:2147483002;background:#0B1220;color:#E8EDF5;flex-direction:column;align-items:center;justify-content:center;gap:14px;text-align:center;padding:32px;font-family:"Inter Tight",system-ui,sans-serif}
+  #nv-rotate i{font-size:56px;color:#22D3EE}
+  #nv-rotate strong{font-size:22px;font-weight:600;letter-spacing:-.01em}
+  #nv-rotate span{font-size:15px;color:#94A3B8;max-width:280px;line-height:1.4}
+  @media (max-width:900px) and (orientation:portrait){
+    #nv-rotate{display:flex}
+    #nv-nav,#nv-cta{display:none!important}
+  }
+  @media print{#nv-nav,#nv-cta,#nv-rotate{display:none!important}}
 </style>
 <script>
 (function () {
@@ -651,6 +665,7 @@ class Component extends DCLogic {
     if (DEMO) {
       updateCta();
       if (idx === 2) { startStations(); } else { stopStations(); }
+      refreshPulse();
       return;
     }
     var c = doc.getElementById('nv-count');
@@ -707,6 +722,40 @@ class Component extends DCLogic {
       if (sec && e.target && sec.contains(e.target)) { stopStations(); stDone = true; }
     }, true);
   }
+
+  function mountRotate() {
+    if (doc.getElementById('nv-rotate')) return;
+    var d = doc.createElement('div');
+    d.id = 'nv-rotate';
+    d.innerHTML = '<i class="ph ph-device-mobile"></i><strong>Gir\u00e1 el tel\u00e9fono</strong><span>Esta presentaci\u00f3n se ve en horizontal.</span>';
+    doc.body.appendChild(d);
+  }
+
+  var pulseArmed = false;
+
+  function setPulse(on) {
+    var cta = doc.getElementById('nv-cta');
+    if (!cta) return;
+    if (on) { cta.classList.add('nv-pulse'); } else { cta.classList.remove('nv-pulse'); }
+  }
+
+  function refreshPulse() {
+    if (!DEMO || !doc.getElementById('nv-cta')) return;
+    if (idx === 3) {
+      if (!pulseArmed) {
+        pulseArmed = true;
+        setTimeout(function () { if (idx === 3) setPulse(true); }, 2600);
+      }
+    } else if (idx === 2) {
+      var sec = doc.querySelector('deck-stage > section[data-deck-active]');
+      setPulse(!!(sec && /05\s*\/\s*05/.test(sec.textContent)));
+    } else {
+      setPulse(false);
+    }
+  }
+
+  mountRotate();
+  if (DEMO) { setInterval(refreshPulse, 400); }
 
   function updateCta() {
     var a = doc.getElementById('nv-cta');

@@ -643,6 +643,7 @@ class Component extends DCLogic {
   var doc = document;
   var deck = null, idx = 0, total = 0;
   var DEMO = /[?&]demo(=1)?(&|$)/.test(location.search);
+  if (DEMO && !location.hash) { location.replace(location.href.split('#')[0] + '#4'); }
 
   function sections() { return doc.querySelectorAll('deck-stage > section'); }
 
@@ -752,7 +753,6 @@ class Component extends DCLogic {
       });
       mount();
       syncFromDom();
-      if (DEMO && !location.hash) { setTimeout(function () { go(3); }, 120); }
       try { window.dispatchEvent(new Event('resize')); } catch (e) {}
       setTimeout(function () { try { window.dispatchEvent(new Event('resize')); } catch (e) {} }, 300);
     } else if (tries > 120) {

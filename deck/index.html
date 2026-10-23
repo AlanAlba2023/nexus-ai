@@ -1,0 +1,724 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<title>Nuvora — Captación de leads con IA</title>
+<link rel="stylesheet" href="fonts/fonts.css">
+<link rel="stylesheet" href="icons/regular.css">
+<link rel="stylesheet" href="icons/fill.css">
+<link rel="stylesheet" href="_ds/nocturne-797bf389-b39d-49a1-a41c-f2dae4e6e400/styles.css">
+<script src="_ds/nocturne-797bf389-b39d-49a1-a41c-f2dae4e6e400/_ds_bundle.js"></script>
+<style>
+:root {
+  --color-bg: #0B1220; --color-surface: #111A2C; --color-text: #E8EDF5;
+  --color-accent: #22D3EE; --color-accent-300: #67E8F9; --color-accent-700: #0E7490; --color-accent-800: #134E5E; --color-accent-900: #0B2A36;
+  --color-muted: #94A3B8; --color-divider: rgba(232,237,245,0.12);
+  --font-heading: "Inter Tight", system-ui, sans-serif; --font-body: "Plus Jakarta Sans", system-ui, sans-serif;
+}
+body { margin: 0; background: #0B1220; }
+a { color: #22D3EE; } a:hover { color: #67E8F9; }
+@keyframes nv-in { from { opacity: 0; transform: translateY(14px); } to { opacity: 1; transform: none; } }
+@keyframes nv-dot { 0%, 80%, 100% { opacity: .25; transform: translateY(0); } 40% { opacity: 1; transform: translateY(-5px); } }
+@keyframes nv-fade { from { opacity: 0; } to { opacity: 1; } }
+</style>
+</helmet>
+<x-import component-from-global-scope="deck-stage" from="./deck-stage.js" width="1920" height="1080" hint-size="100%,100%" data-uneditable="">
+
+<section data-label="Portada" data-screen-label="01 Portada" data-speaker-notes="Presentar Nuvora: un embudo que capta, califica y entrega cada lead. A la derecha, el antes y el después: un mensaje que llega de madrugada y la ficha calificada que recibe el equipo." style="display:grid;grid-template-columns:minmax(0,1fr) 620px;gap:112px;align-items:center;padding:96px 120px 140px;background:radial-gradient(60% 70% at 82% 50%, rgba(34,211,238,0.10), transparent 70%), radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.08), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
+  <div style="display:flex;flex-direction:column;min-width:0">
+    <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
+      <span style="width:44px;height:1px;background:#22D3EE"></span>
+      <span>Embudo de captación</span>
+    </div>
+    <h1 style="margin:44px 0 0;font-family:var(--font-heading);font-weight:500;font-size:124px;line-height:0.98;letter-spacing:-0.04em;text-wrap:balance">Captación de leads con IA</h1>
+    <p style="margin:40px 0 0;font-size:40px;line-height:1.3;color:#94A3B8;max-width:880px;text-wrap:pretty">Del primer clic al handoff humano, sin perder un solo interesado</p>
+    <div style="margin-top:72px;display:flex;align-items:center;flex-wrap:wrap;gap:16px">
+      <span style="font-size:24px;color:#E8EDF5">Entradas</span><i class="ph ph-caret-right" style="font-size:24px;color:rgba(34,211,238,0.6)"></i><span style="font-size:24px;color:#94A3B8">WhatsApp</span><i class="ph ph-caret-right" style="font-size:24px;color:rgba(34,211,238,0.6)"></i><span style="font-size:24px;color:#94A3B8">Agente</span><i class="ph ph-caret-right" style="font-size:24px;color:rgba(34,211,238,0.6)"></i><span style="font-size:24px;color:#94A3B8">Ficha</span><i class="ph ph-caret-right" style="font-size:24px;color:rgba(34,211,238,0.6)"></i><span style="font-size:24px;color:#94A3B8">Humano</span>
+    </div>
+  </div>
+  <div style="display:flex;flex-direction:column">
+    <div style="border:1px solid rgba(232,237,245,0.12);border-radius:14px;background:#111A2C;padding:28px 32px;display:flex;flex-direction:column;gap:18px">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span style="display:flex;align-items:center;gap:12px;font-size:24px;color:#94A3B8"><i class="ph ph-whatsapp-logo" style="font-size:30px;color:#25D366"></i><span>Mensaje entrante</span></span>
+        <span style="font-size:24px;color:#94A3B8;font-variant-numeric:normal">23:47</span>
+      </div>
+      <div style="align-self:flex-start;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:14px 20px;font-size:26px;line-height:1.35">Hola, vi la web. Quiero automatizar la atención de mi negocio.</div>
+    </div>
+    <div style="display:flex;align-items:center;gap:20px;padding:0 0 0 48px;height:104px">
+      <span style="width:1.5px;height:100%;background:linear-gradient(to bottom, rgba(34,211,238,0.2), #22D3EE)"></span>
+      <span style="display:flex;align-items:center;gap:12px;font-size:24px;color:#67E8F9"><i class="ph ph-robot" style="font-size:28px"></i><span>Agente calificador · 5 / 5 slots</span></span>
+    </div>
+    <div style="border:1px solid #22D3EE;border-radius:14px;background:#0F1B2E;box-shadow:0 0 40px rgba(34,211,238,0.18);padding:32px;display:flex;flex-direction:column;gap:20px">
+      <div style="display:flex;align-items:center;justify-content:space-between">
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Lead calificado</span>
+        <i class="ph ph-identification-card" style="font-size:32px;color:#22D3EE"></i>
+      </div>
+      <div style="display:flex;flex-direction:column;gap:6px">
+        <span style="font-family:var(--font-heading);font-weight:500;font-size:40px;letter-spacing:-0.02em">Carolina Muñoz</span>
+        <span style="font-size:26px;color:#CBD5E1">Clínica Dental Sonríe · ~40 mensajes al día</span>
+      </div>
+      <div style="display:grid;grid-template-columns:auto minmax(0,1fr);gap:24px;align-items:center;padding-top:16px;border-top:1px solid rgba(232,237,245,0.08)">
+        <span style="font-family:var(--font-heading);font-weight:500;font-size:30px;color:#22D3EE">Tibio alto</span>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+          <span style="height:10px;border-radius:5px;background:#22D3EE"></span>
+          <span style="height:10px;border-radius:5px;background:#22D3EE"></span>
+          <span style="height:10px;border-radius:5px;background:rgba(232,237,245,0.12)"></span>
+        </div>
+      </div>
+      <span style="display:flex;align-items:center;gap:14px;font-size:24px;color:#E8EDF5"><i class="ph ph-arrow-right" style="color:#22D3EE"></i><span>Entregado al ejecutivo con la ficha completa</span></span>
+    </div>
+  </div>
+  <div style="position:absolute;left:120px;right:120px;bottom:52px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#94A3B8">
+    <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:9px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:24px;color:#F2B824">N</span><span style="font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:#D9DCE3">Nuvora</span></span>
+    <div style="display:flex;align-items:center;gap:28px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <button data-goto="0" aria-label="Ir a diapositiva 1" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:32px;height:8px;border-radius:4px;background:#22D3EE"></span></button>
+        <button data-goto="1" aria-label="Ir a diapositiva 2" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="2" aria-label="Ir a diapositiva 3" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="3" aria-label="Ir a diapositiva 4" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="4" aria-label="Ir a diapositiva 5" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="5" aria-label="Ir a diapositiva 6" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="6" aria-label="Ir a diapositiva 7" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+      </div>
+      <span style="font-variant-numeric:normal">01 / 07</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="El problema" data-screen-label="02 El problema" data-speaker-notes="El problema no es la demanda, es el tiempo de respuesta." style="display:flex;flex-direction:column;padding:96px 120px 140px;background:radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.06), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
+  <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
+    <span style="width:44px;height:1px;background:#22D3EE"></span>
+    <span>El problema</span>
+  </div>
+  <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em;max-width:1500px;text-wrap:balance">El lead no se pierde por falta de interés. Se pierde por falta de respuesta.</h2>
+  <div style="margin-top:80px;display:grid;grid-template-columns:minmax(0,1fr) 64px minmax(0,1fr) 64px minmax(0,1fr);align-items:center">
+    <div style="border:1px solid rgba(232,237,245,0.12);border-radius:14px;padding:40px;display:flex;flex-direction:column;gap:32px;background:#111A2C">
+      <i class="ph ph-chat-circle-dots" style="font-size:48px;color:#22D3EE"></i>
+      <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">01</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:40px;line-height:1.15;letter-spacing:-0.02em">Llega el mensaje</span>
+    </div>
+    <i class="ph ph-arrow-right" style="font-size:32px;color:#94A3B8;justify-self:center"></i>
+    <div style="border:1px solid rgba(232,237,245,0.12);border-radius:14px;padding:40px;display:flex;flex-direction:column;gap:32px;background:#111A2C">
+      <i class="ph ph-clock-countdown" style="font-size:48px;color:#22D3EE"></i>
+      <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">02</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:40px;line-height:1.15;letter-spacing:-0.02em">Nadie contesta a tiempo</span>
+    </div>
+    <i class="ph ph-arrow-right" style="font-size:32px;color:#94A3B8;justify-self:center"></i>
+    <div style="border:1px solid rgba(232,237,245,0.12);border-radius:14px;padding:40px;display:flex;flex-direction:column;gap:32px;background:#111A2C">
+      <i class="ph ph-sign-out" style="font-size:48px;color:#94A3B8"></i>
+      <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">03</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:40px;line-height:1.15;letter-spacing:-0.02em">El interesado compra en otro lado</span>
+    </div>
+  </div>
+  <p style="margin:72px 0 0;font-family:var(--font-heading);font-weight:500;font-size:48px;line-height:1.2;letter-spacing:-0.02em;color:#67E8F9;max-width:1400px">La primera empresa que responde se queda con la venta.</p>
+  <div style="position:absolute;left:120px;right:120px;bottom:52px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#94A3B8">
+    <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:9px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:24px;color:#F2B824">N</span><span style="font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:#D9DCE3">Nuvora</span></span>
+    <div style="display:flex;align-items:center;gap:28px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <button data-goto="0" aria-label="Ir a diapositiva 1" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="1" aria-label="Ir a diapositiva 2" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:32px;height:8px;border-radius:4px;background:#22D3EE"></span></button>
+        <button data-goto="2" aria-label="Ir a diapositiva 3" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="3" aria-label="Ir a diapositiva 4" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="4" aria-label="Ir a diapositiva 5" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="5" aria-label="Ir a diapositiva 6" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="6" aria-label="Ir a diapositiva 7" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+      </div>
+      <span style="font-variant-numeric:normal">02 / 07</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="El flujo" data-screen-label="03 El flujo" data-speaker-notes="Hay dos puertas de entrada: el botón de la web y los anuncios click-to-WhatsApp de Meta, que nunca pasan por el sitio. Ambas convergen en el mismo número de WhatsApp Business vía Cloud API, así que alimentan al mismo agente y a la misma ficha. Desde ahí el flujo es uno solo. Navegar con clic o con las flechas; en la quinta estación, la flecha derecha avanza de diapositiva." style="display:flex;flex-direction:column;padding:96px 120px 140px;background:radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.06), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
+  <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
+    <span style="width:44px;height:1px;background:#22D3EE"></span>
+    <span>El flujo</span>
+  </div>
+  <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em">Un solo embudo, cinco estaciones</h2>
+  <div style="margin-top:56px;position:relative;display:grid;grid-template-columns:repeat(5,minmax(0,1fr))">
+    <div style="position:absolute;left:30%;right:10%;top:52px;height:1.5px;background:rgba(34,211,238,0.45)"></div>
+    <div style="position:absolute;left:30%;top:52px;height:1.5px;width:{{ progress }};background:#22D3EE;transition:width .45s ease"></div>
+    <svg width="1680" height="104" viewBox="0 0 1680 104" style="position:absolute;left:0;top:0;pointer-events:none;overflow:visible"><path d="M 194 24 C 330 24, 330 52, 452 52" fill="none" stroke="{{ yStroke }}" stroke-width="1.5"></path><path d="M 194 80 C 330 80, 330 52, 452 52" fill="none" stroke="{{ yStroke }}" stroke-width="1.5"></path></svg>
+    <button onClick="{{ go0 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st0.op }};transition:opacity .3s ease">
+      <span style="position:relative;display:block;width:100%;height:104px">
+        <span style="position:absolute;left:144px;top:0px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st0.bg }};border:1px solid {{ st0.bc }};box-shadow:{{ st0.glow }};transition:all .3s ease"><i class="ph ph-globe-simple" style="font-size:24px;color:{{ st0.ic }}"></i></span>
+        <span style="position:absolute;right:calc(100% - 128px);top:8px;font-size:24px;line-height:32px;color:{{ st0.ic }}">Web</span>
+        <span style="position:absolute;left:144px;top:56px;width:48px;height:48px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st0.bg }};border:1px solid {{ st0.bc }};box-shadow:{{ st0.glow }};transition:all .3s ease"><i class="ph ph-meta-logo" style="font-size:24px;color:{{ st0.ic }}"></i></span>
+        <span style="position:absolute;right:calc(100% - 128px);top:64px;font-size:24px;line-height:32px;color:{{ st0.ic }}">Meta</span>
+      </span>
+      <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">01</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Entradas</span>
+    </button>
+    <button onClick="{{ go1 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st1.op }};transition:opacity .3s ease">
+      <span style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st1.bg }};border:1px solid {{ st1.bc }};box-shadow:{{ st1.glow }};transition:all .3s ease"><i class="ph ph-whatsapp-logo" style="font-size:44px;color:{{ st1.ic }}"></i></span>
+      <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">02</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">WhatsApp Business</span>
+    </button>
+    <button onClick="{{ go2 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st2.op }};transition:opacity .3s ease">
+      <span style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st2.bg }};border:1px solid {{ st2.bc }};box-shadow:{{ st2.glow }};transition:all .3s ease"><i class="ph ph-robot" style="font-size:44px;color:{{ st2.ic }}"></i></span>
+      <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">03</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Agente calificador</span>
+    </button>
+    <button onClick="{{ go3 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st3.op }};transition:opacity .3s ease">
+      <span style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st3.bg }};border:1px solid {{ st3.bc }};box-shadow:{{ st3.glow }};transition:all .3s ease"><i class="ph ph-identification-card" style="font-size:44px;color:{{ st3.ic }}"></i></span>
+      <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">04</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Ficha de lead</span>
+    </button>
+    <button onClick="{{ go4 }}" style="all:unset;cursor:pointer;display:flex;flex-direction:column;align-items:center;gap:24px;position:relative;opacity:{{ st4.op }};transition:opacity .3s ease">
+      <span style="width:104px;height:104px;border-radius:50%;display:flex;align-items:center;justify-content:center;background:{{ st4.bg }};border:1px solid {{ st4.bc }};box-shadow:{{ st4.glow }};transition:all .3s ease"><i class="ph ph-handshake" style="font-size:44px;color:{{ st4.ic }}"></i></span>
+      <span style="font-size:24px;color:#94A3B8;letter-spacing:0.06em">05</span>
+      <span style="font-family:var(--font-heading);font-weight:500;font-size:32px;letter-spacing:-0.01em;text-align:center">Handoff humano</span>
+    </button>
+  </div>
+  <div style="margin-top:48px;border:1px solid rgba(232,237,245,0.12);border-radius:14px;background:#111A2C;padding:40px 56px;min-height:280px;display:grid;grid-template-columns:minmax(0,1fr) auto;gap:56px;align-items:start">
+    <div style="display:flex;flex-direction:column;gap:24px">
+      <sc-if value="{{ is0 }}" hint-placeholder-val="{{ true }}">
+        <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 01 · Entradas</span>
+          <div style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:56px">
+            <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+              <span style="display:flex;align-items:center;gap:14px;font-family:var(--font-heading);font-weight:500;font-size:32px"><i class="ph ph-globe-simple" style="color:#22D3EE"></i><span>Web</span></span>
+              <p style="margin:0;font-size:28px;line-height:1.35;color:#E8EDF5;text-wrap:pretty">Botón con mensaje prellenado. El visitante llega a WhatsApp sabiendo de qué landing viene.</p>
+            </div>
+            <div style="display:flex;flex-direction:column;gap:14px;min-width:0">
+              <span style="display:flex;align-items:center;gap:14px;font-family:var(--font-heading);font-weight:500;font-size:32px"><i class="ph ph-meta-logo" style="color:#22D3EE"></i><span>Meta</span></span>
+              <p style="margin:0;font-size:28px;line-height:1.35;color:#E8EDF5;text-wrap:pretty">Anuncios click-to-WhatsApp. El webhook de Cloud API entrega el objeto referral con el anuncio de origen. El lead no escribe nada para dar contexto.</p>
+            </div>
+          </div>
+        </div>
+      </sc-if>
+      <sc-if value="{{ is1 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 02 · WhatsApp Business</span>
+          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Punto de convergencia: web y Meta llegan al mismo número vía Cloud API. Cada mensaje entra a un webhook, no a un celular, y alimenta al mismo agente y a la misma ficha.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ is2 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 03 · Agente calificador</span>
+          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Vive en Nuvora. Conversa y completa slots: necesidad, urgencia, presupuesto, tamaño del negocio, quién decide, canal preferido.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ is3 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 04 · Ficha de lead</span>
+          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">El agente arma un registro estructurado y lo entrega al cliente por su canal: WhatsApp, Slack o CRM.</p>
+        </div>
+      </sc-if>
+      <sc-if value="{{ is4 }}" hint-placeholder-val="{{ false }}">
+        <div style="display:flex;flex-direction:column;gap:24px;animation:nv-fade .35s ease">
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#67E8F9">Estación 05 · Handoff humano</span>
+          <p style="margin:0;font-size:38px;line-height:1.35;color:#E8EDF5;max-width:1300px;text-wrap:pretty">Cuando el lead está caliente o pide hablar con una persona, el vendedor entra con la ficha ya armada.</p>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:flex;flex-direction:column;align-items:flex-end;gap:20px">
+      <div style="display:flex;gap:12px">
+        <button class="btn btn-ghost" onClick="{{ prev }}" aria-label="Estación anterior" style="font-size:28px;width:64px;height:64px;padding:0;border:1px solid rgba(232,237,245,0.16)"><i class="ph ph-arrow-left"></i></button>
+        <button class="btn btn-primary" onClick="{{ next }}" aria-label="Estación siguiente" style="font-size:28px;width:64px;height:64px;padding:0"><i class="ph ph-arrow-right"></i></button>
+      </div>
+      <span style="font-size:24px;color:#94A3B8;font-variant-numeric:normal">{{ stationLabel }}</span>
+    </div>
+  </div>
+  <div style="position:absolute;left:120px;right:120px;bottom:52px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#94A3B8">
+    <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:9px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:24px;color:#F2B824">N</span><span style="font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:#D9DCE3">Nuvora</span></span>
+    <div style="display:flex;align-items:center;gap:28px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <button data-goto="0" aria-label="Ir a diapositiva 1" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="1" aria-label="Ir a diapositiva 2" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="2" aria-label="Ir a diapositiva 3" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:32px;height:8px;border-radius:4px;background:#22D3EE"></span></button>
+        <button data-goto="3" aria-label="Ir a diapositiva 4" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="4" aria-label="Ir a diapositiva 5" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="5" aria-label="Ir a diapositiva 6" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="6" aria-label="Ir a diapositiva 7" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+      </div>
+      <span style="font-variant-numeric:normal">03 / 07</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="Demo del agente" data-screen-label="04 Demo del agente" data-speaker-notes="La conversación se reproduce sola al entrar. Mostrar cómo se llenan los slots en vivo." style="display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:120px;padding:96px 120px 140px;background:radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.07), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
+  <div style="display:flex;flex-direction:column;min-width:0">
+    <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
+      <span style="width:44px;height:1px;background:#22D3EE"></span>
+      <span>Demo</span>
+    </div>
+    <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em">Así conversa el agente</h2>
+    <div style="margin-top:40px;border:1px solid rgba(232,237,245,0.12);border-radius:14px;background:#111A2C;padding:32px 40px;display:flex;flex-direction:column;gap:8px">
+      <div style="display:flex;justify-content:space-between;align-items:baseline;padding-bottom:20px">
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Slots del lead</span>
+        <span style="font-size:24px;color:#67E8F9;font-variant-numeric:normal">{{ slotCount }}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:40px 220px minmax(0,1fr);align-items:center;padding:11px 0;border-top:1px solid rgba(232,237,245,0.08)">
+        <sc-if value="{{ slotNeed }}" hint-placeholder-val="{{ false }}"><i class="ph-fill ph-check-circle" style="font-size:32px;color:#22D3EE;animation:nv-fade .3s ease"></i></sc-if>
+        <sc-if value="{{ slotNeedOff }}" hint-placeholder-val="{{ true }}"><i class="ph ph-circle" style="font-size:32px;color:#475569"></i></sc-if>
+        <span style="font-size:30px">Necesidad</span>
+        <span style="font-size:26px;color:{{ needColor }}">{{ needVal }}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:40px 220px minmax(0,1fr);align-items:center;padding:11px 0;border-top:1px solid rgba(232,237,245,0.08)">
+        <sc-if value="{{ slotUrg }}" hint-placeholder-val="{{ false }}"><i class="ph-fill ph-check-circle" style="font-size:32px;color:#22D3EE;animation:nv-fade .3s ease"></i></sc-if>
+        <sc-if value="{{ slotUrgOff }}" hint-placeholder-val="{{ true }}"><i class="ph ph-circle" style="font-size:32px;color:#475569"></i></sc-if>
+        <span style="font-size:30px">Urgencia</span>
+        <span style="font-size:26px;color:{{ urgColor }}">{{ urgVal }}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:40px 220px minmax(0,1fr);align-items:center;padding:11px 0;border-top:1px solid rgba(232,237,245,0.08)">
+        <sc-if value="{{ slotCh }}" hint-placeholder-val="{{ false }}"><i class="ph-fill ph-check-circle" style="font-size:32px;color:#22D3EE;animation:nv-fade .3s ease"></i></sc-if>
+        <sc-if value="{{ slotChOff }}" hint-placeholder-val="{{ true }}"><i class="ph ph-circle" style="font-size:32px;color:#475569"></i></sc-if>
+        <span style="font-size:30px">Canal</span>
+        <span style="font-size:26px;color:{{ chColor }}">{{ chVal }}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:40px 220px minmax(0,1fr);align-items:center;padding:11px 0;border-top:1px solid rgba(232,237,245,0.08)">
+        <sc-if value="{{ slotBud }}" hint-placeholder-val="{{ false }}"><i class="ph-fill ph-check-circle" style="font-size:32px;color:#22D3EE;animation:nv-fade .3s ease"></i></sc-if>
+        <sc-if value="{{ slotBudOff }}" hint-placeholder-val="{{ true }}"><i class="ph ph-circle" style="font-size:32px;color:#475569"></i></sc-if>
+        <span style="font-size:30px">Presupuesto</span>
+        <span style="font-size:26px;color:{{ budColor }}">{{ budVal }}</span>
+      </div>
+      <div style="display:grid;grid-template-columns:40px 220px minmax(0,1fr);align-items:center;padding:11px 0;border-top:1px solid rgba(232,237,245,0.08)">
+        <sc-if value="{{ slotDec }}" hint-placeholder-val="{{ false }}"><i class="ph-fill ph-check-circle" style="font-size:32px;color:#22D3EE;animation:nv-fade .3s ease"></i></sc-if>
+        <sc-if value="{{ slotDecOff }}" hint-placeholder-val="{{ true }}"><i class="ph ph-circle" style="font-size:32px;color:#475569"></i></sc-if>
+        <span style="font-size:30px">Decide</span>
+        <span style="font-size:26px;color:{{ decColor }}">{{ decVal }}</span>
+      </div>
+    </div>
+    <div style="margin-top:32px;display:flex;align-items:center;gap:24px">
+      <button class="btn btn-primary" onClick="{{ replay }}" style="font-size:26px;padding:16px 28px;gap:12px"><i class="ph ph-arrow-counter-clockwise"></i><span>{{ replayLabel }}</span></button>
+    </div>
+  </div>
+  <div style="height:844px;border:1px solid rgba(232,237,245,0.16);border-radius:44px;background:#0E1626;display:flex;flex-direction:column;overflow:hidden">
+    <div style="display:flex;align-items:center;gap:20px;padding:28px 32px;border-bottom:1px solid rgba(232,237,245,0.08);background:#111A2C">
+      <span style="width:60px;height:60px;border-radius:12px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:30px;color:#F2B824">N</span>
+      <div style="display:flex;flex-direction:column;gap:4px">
+        <span style="font-family:var(--font-heading);font-weight:500;font-size:28px">Nuvora</span>
+        <span style="font-size:24px;color:{{ statusColor }}">{{ status }}</span>
+      </div>
+    </div>
+    <div style="flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;padding:24px 24px 20px;overflow:hidden">
+      <sc-if value="{{ m1 }}" hint-placeholder-val="{{ false }}">
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Hola, vi la web. Quiero automatizar la atención de mi negocio.</div>
+      </sc-if>
+      <sc-if value="{{ m2 }}" hint-placeholder-val="{{ false }}">
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Buenísimo. ¿Qué tipo de negocio tienes y cuántos mensajes recibes al día?</div>
+      </sc-if>
+      <sc-if value="{{ m3 }}" hint-placeholder-val="{{ false }}">
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Una clínica dental, unos 40 al día. Se nos escapan varios.</div>
+      </sc-if>
+      <sc-if value="{{ m4 }}" hint-placeholder-val="{{ false }}">
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Eso es mucho volumen para responder a mano. ¿Hoy alguien contesta fuera de horario?</div>
+      </sc-if>
+      <sc-if value="{{ m5 }}" hint-placeholder-val="{{ false }}">
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">No, solo en horario de oficina.</div>
+      </sc-if>
+      <sc-if value="{{ m6 }}" hint-placeholder-val="{{ false }}">
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Ahí está la fuga. ¿Manejas un rango mensual para resolver esto o lo vemos después?</div>
+      </sc-if>
+      <sc-if value="{{ m7 }}" hint-placeholder-val="{{ false }}">
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Depende de lo que cueste. No tengo un número claro.</div>
+      </sc-if>
+      <sc-if value="{{ m8 }}" hint-placeholder-val="{{ true }}">
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Tranquilo, para eso hacemos la propuesta. ¿La decisión la tomas tú o hay alguien más?</div>
+      </sc-if>
+      <sc-if value="{{ m9 }}" hint-placeholder-val="{{ true }}">
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Con mi socio, pero yo veo el tema operativo.</div>
+      </sc-if>
+      <sc-if value="{{ m10 }}" hint-placeholder-val="{{ true }}">
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Perfecto. Con esto armo el diagnóstico y te envío una propuesta. ¿A qué correo te la mando?</div>
+      </sc-if>
+      <sc-if value="{{ m11 }}" hint-placeholder-val="{{ true }}">
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">carolina@sonrie.cl</div>
+      </sc-if>
+      <sc-if value="{{ m12 }}" hint-placeholder-val="{{ true }}">
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid #22D3EE;box-shadow:0 0 20px rgba(34,211,238,0.18);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Listo, Carolina. Un ejecutivo te escribe en menos de 24 horas hábiles para coordinar la llamada.</div>
+      </sc-if>
+      <sc-if value="{{ typing }}" hint-placeholder-val="{{ false }}">
+        <div style="align-self:flex-start;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:22px 26px;display:flex;gap:8px;animation:nv-in .25s ease">
+          <span style="width:10px;height:10px;border-radius:50%;background:#94A3B8;animation:nv-dot 1.1s infinite"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#94A3B8;animation:nv-dot 1.1s .15s infinite"></span>
+          <span style="width:10px;height:10px;border-radius:50%;background:#94A3B8;animation:nv-dot 1.1s .3s infinite"></span>
+        </div>
+      </sc-if>
+    </div>
+    <div style="display:flex;align-items:center;gap:16px;padding:20px 24px 28px">
+      <div style="flex:1;border:1px solid rgba(232,237,245,0.12);border-radius:999px;padding:14px 24px;font-size:24px;color:#64748B">Escribe un mensaje</div>
+      <span style="width:56px;height:56px;border-radius:50%;border:1px solid rgba(34,211,238,0.5);display:flex;align-items:center;justify-content:center"><i class="ph ph-paper-plane-right" style="font-size:26px;color:#22D3EE"></i></span>
+    </div>
+  </div>
+  <div style="position:absolute;left:120px;right:120px;bottom:52px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#94A3B8">
+    <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:9px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:24px;color:#F2B824">N</span><span style="font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:#D9DCE3">Nuvora</span></span>
+    <div style="display:flex;align-items:center;gap:28px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <button data-goto="0" aria-label="Ir a diapositiva 1" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="1" aria-label="Ir a diapositiva 2" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="2" aria-label="Ir a diapositiva 3" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="3" aria-label="Ir a diapositiva 4" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:32px;height:8px;border-radius:4px;background:#22D3EE"></span></button>
+        <button data-goto="4" aria-label="Ir a diapositiva 5" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="5" aria-label="Ir a diapositiva 6" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="6" aria-label="Ir a diapositiva 7" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+      </div>
+      <span style="font-variant-numeric:normal">04 / 07</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="La ficha" data-screen-label="05 La ficha" data-speaker-notes="Esto es lo que recibe el cliente: no un aviso, un expediente." style="display:flex;flex-direction:column;padding:96px 120px 140px;background:radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.06), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
+  <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
+    <span style="width:44px;height:1px;background:#22D3EE"></span>
+    <span>La ficha</span>
+  </div>
+  <h2 style="margin:28px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em">Lo que realmente le llega al cliente</h2>
+  <div style="margin-top:24px;border:1px solid rgba(232,237,245,0.14);border-radius:14px;background:#111A2C;display:flex;flex-direction:column;line-height:1.25">
+    <div style="display:grid;grid-template-columns:minmax(0,1.55fr) minmax(0,1fr);border-bottom:1px solid rgba(232,237,245,0.14)">
+      <div style="padding:18px 36px;display:flex;flex-direction:column;gap:10px;border-right:1px solid rgba(232,237,245,0.08)">
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Contacto</span>
+        <div style="display:flex;flex-direction:column;gap:4px">
+          <span style="font-family:var(--font-heading);font-weight:500;font-size:36px;letter-spacing:-0.02em">Carolina Muñoz · Directora</span>
+          <span style="font-size:26px;color:#CBD5E1">Clínica Dental Sonríe</span>
+        </div>
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:12px 24px;font-size:24px;white-space:nowrap">
+          <a href="https://wa.me/56988776655" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:10px;color:#E8EDF5;text-decoration:none;border:1px solid rgba(37,211,102,0.5);border-radius:8px;padding:8px 16px;flex-shrink:0"><i class="ph ph-whatsapp-logo" style="color:#25D366"></i><span>+56 9 8877 6655</span></a>
+          <a href="mailto:carolina@sonrie.cl" style="display:flex;align-items:center;gap:10px;color:#E8EDF5;text-decoration:none;border:1px solid rgba(34,211,238,0.5);border-radius:8px;padding:8px 16px;flex-shrink:0"><i class="ph ph-envelope-simple" style="color:#22D3EE"></i><span>carolina@sonrie.cl</span></a>
+          <span style="display:flex;align-items:center;gap:10px;color:#CBD5E1;flex-shrink:0"><i class="ph ph-map-pin" style="color:#94A3B8"></i><span>Santiago, Chile · GMT-3</span></span>
+        </div>
+      </div>
+      <div style="padding:18px 36px;display:flex;flex-direction:column;gap:10px">
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Score</span>
+        <span style="font-family:var(--font-heading);font-weight:500;font-size:40px;letter-spacing:-0.02em;color:#22D3EE">Tibio alto</span>
+        <div style="display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px">
+          <span style="height:10px;border-radius:5px;background:#22D3EE"></span>
+          <span style="height:10px;border-radius:5px;background:#22D3EE"></span>
+          <span style="height:10px;border-radius:5px;background:rgba(232,237,245,0.12)"></span>
+        </div>
+        <span style="font-size:24px;line-height:1.3;color:#CBD5E1">Dolor claro y alto volumen; decisora identificada, falta rango de presupuesto.</span>
+      </div>
+    </div>
+    <div style="display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1.5fr) minmax(0,1.35fr)">
+      <div style="padding:16px 36px;display:flex;flex-direction:column;gap:14px;border-right:1px solid rgba(232,237,245,0.08);border-bottom:1px solid rgba(232,237,245,0.08)">
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Negocio</span>
+          <span style="font-size:26px">Salud dental · Pyme</span>
+          <span style="font-size:24px;color:#CBD5E1">~40 mensajes al día</span>
+        </div>
+        <div style="display:flex;flex-direction:column;gap:8px">
+          <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Coordinación</span>
+          <span style="display:flex;align-items:center;gap:10px;font-size:24px"><i class="ph ph-calendar-blank" style="color:#22D3EE"></i><span>Prefiere mañanas · martes o jueves</span></span>
+        </div>
+      </div>
+      <div style="padding:16px 36px;display:flex;flex-direction:column;gap:8px;border-right:1px solid rgba(232,237,245,0.08);border-bottom:1px solid rgba(232,237,245,0.08)">
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Calificación</span>
+        <div style="display:grid;grid-template-columns:auto minmax(0,1fr);column-gap:20px;row-gap:8px;font-size:24px;line-height:1.3">
+          <span style="color:#94A3B8">Necesidad</span><span>Atención fuera de horario</span>
+          <span style="color:#94A3B8">Urgencia</span><span>Alta</span>
+          <span style="color:#94A3B8">Presupuesto</span><span>Sin rango definido · abierto a propuesta</span>
+          <span style="color:#94A3B8">Decisor</span><span>Directora + socio</span>
+        </div>
+      </div>
+      <div style="padding:16px 36px;display:flex;flex-direction:column;gap:8px;border-bottom:1px solid rgba(232,237,245,0.08)">
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8">Resumen del agente</span>
+        <span style="font-size:24px;line-height:1.3">Clínica dental con unos 40 mensajes diarios por WhatsApp.</span>
+        <span style="font-size:24px;line-height:1.3">Pierde consultas porque solo responde en horario de oficina.</span>
+        <span style="font-size:24px;line-height:1.3">Dejó correo y preferencia de horario; falta validar presupuesto en la llamada.</span>
+      </div>
+      <div style="grid-column:span 3;padding:18px 36px;display:flex;align-items:center;gap:24px">
+        <span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;white-space:nowrap">Siguiente paso</span>
+        <span style="display:flex;align-items:center;gap:12px;font-size:26px;white-space:nowrap"><i class="ph ph-arrow-right" style="color:#22D3EE"></i><span>Contactar en menos de 24 horas hábiles para coordinar llamada</span></span>
+        <span style="margin-left:auto;display:flex;align-items:center;gap:16px;white-space:nowrap"><span style="font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#94A3B8;white-space:nowrap">Adjunto</span><span style="display:flex;align-items:center;gap:10px;font-size:24px"><i class="ph ph-file-text" style="color:#22D3EE"></i><span>Transcripción completa</span></span></span>
+      </div>
+    </div>
+    <div style="padding:10px 36px;border-top:1px solid rgba(232,237,245,0.14);font-size:24px;color:#94A3B8;display:flex;align-items:center;gap:12px">
+      <sc-if value="{{ originMeta }}" hint-placeholder-val="{{ true }}"><span style="display:flex;align-items:center;gap:12px"><i class="ph ph-meta-logo"></i><span>Origen: Meta · anuncio “Dental — fuera de horario”  ·  Ingresó hoy 12:41</span></span></sc-if>
+      <sc-if value="{{ originWeb }}" hint-placeholder-val="{{ false }}"><span style="display:flex;align-items:center;gap:12px"><i class="ph ph-globe-simple"></i><span>Origen: Web · landing automatización  ·  Ingresó hoy 12:41</span></span></sc-if>
+    </div>
+  </div>
+  <p style="margin:16px 0 0;font-size:30px;line-height:1.2;color:#94A3B8">No es un aviso. Es un expediente listo para vender.</p>
+  <div style="position:absolute;left:120px;right:120px;bottom:52px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#94A3B8">
+    <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:9px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:24px;color:#F2B824">N</span><span style="font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:#D9DCE3">Nuvora</span></span>
+    <div style="display:flex;align-items:center;gap:28px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <button data-goto="0" aria-label="Ir a diapositiva 1" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="1" aria-label="Ir a diapositiva 2" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="2" aria-label="Ir a diapositiva 3" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="3" aria-label="Ir a diapositiva 4" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="4" aria-label="Ir a diapositiva 5" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:32px;height:8px;border-radius:4px;background:#22D3EE"></span></button>
+        <button data-goto="5" aria-label="Ir a diapositiva 6" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="6" aria-label="Ir a diapositiva 7" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+      </div>
+      <span style="font-variant-numeric:normal">05 / 07</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="Handoff humano" data-screen-label="06 Handoff humano" data-speaker-notes="Reglas claras de cuándo el agente termina y cuándo escala a una persona." style="display:flex;flex-direction:column;padding:96px 120px 140px;background:radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.06), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
+  <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
+    <span style="width:44px;height:1px;background:#22D3EE"></span>
+    <span>Handoff humano</span>
+  </div>
+  <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em">El humano no entra a preguntar. Entra a cerrar.</h2>
+  <div style="margin-top:56px;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:40px">
+    <div style="border:1px solid rgba(232,237,245,0.12);border-radius:14px;background:#111A2C;padding:40px 48px;display:flex;flex-direction:column;gap:22px">
+      <div style="display:flex;align-items:center;gap:16px;padding-bottom:8px"><i class="ph ph-robot" style="font-size:36px;color:#94A3B8"></i><span style="font-family:var(--font-heading);font-weight:500;font-size:34px">El agente cierra su parte cuando</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-check" style="color:#94A3B8"></i><span>Los cinco slots están completos</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-check" style="color:#94A3B8"></i><span>El interesado deja un correo de contacto</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-check" style="color:#94A3B8"></i><span>El score está calculado y priorizado</span></div>
+    </div>
+    <div style="border:1px solid rgba(34,211,238,0.45);border-radius:14px;background:#111A2C;padding:40px 48px;display:flex;flex-direction:column;gap:16px">
+      <div style="display:flex;align-items:center;gap:16px;padding-bottom:8px"><i class="ph ph-user-switch" style="font-size:36px;color:#22D3EE"></i><span style="font-family:var(--font-heading);font-weight:500;font-size:34px">El ejecutivo entra cuando</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-arrow-bend-up-right" style="color:#22D3EE"></i><span>Recibe la ficha completa</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-arrow-bend-up-right" style="color:#22D3EE"></i><span>El score define prioridad y velocidad de contacto</span></div>
+      <div style="display:flex;align-items:center;gap:18px;font-size:30px"><i class="ph ph-arrow-bend-up-right" style="color:#22D3EE"></i><span>El interesado pide una persona en cualquier momento, y ahí se corta la automatización</span></div>
+    </div>
+  </div>
+  <div style="margin-top:32px;border-top:1px solid rgba(232,237,245,0.12);border-bottom:1px solid rgba(232,237,245,0.12);padding:28px 0;display:flex;align-items:center;gap:20px">
+    <i class="ph ph-identification-card" style="font-size:40px;color:#22D3EE"></i>
+    <span style="font-size:32px;white-space:nowrap">Todo lead calificado se entrega. El score decide cuán rápido.</span>
+  </div>
+  <div style="position:absolute;left:120px;right:120px;bottom:52px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#94A3B8">
+    <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:9px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:24px;color:#F2B824">N</span><span style="font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:#D9DCE3">Nuvora</span></span>
+    <div style="display:flex;align-items:center;gap:28px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <button data-goto="0" aria-label="Ir a diapositiva 1" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="1" aria-label="Ir a diapositiva 2" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="2" aria-label="Ir a diapositiva 3" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="3" aria-label="Ir a diapositiva 4" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="4" aria-label="Ir a diapositiva 5" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="5" aria-label="Ir a diapositiva 6" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:32px;height:8px;border-radius:4px;background:#22D3EE"></span></button>
+        <button data-goto="6" aria-label="Ir a diapositiva 7" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+      </div>
+      <span style="font-variant-numeric:normal">06 / 07</span>
+    </div>
+  </div>
+</section>
+
+<section data-label="Cierre" data-screen-label="07 Cierre" data-speaker-notes="Cerrar con la invitación al diagnóstico." style="display:flex;flex-direction:column;justify-content:center;padding:96px 120px 140px;background:radial-gradient(90% 90% at 90% 110%, rgba(34,211,238,0.14), transparent 60%), radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.06), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
+  <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
+    <span style="width:44px;height:1px;background:#22D3EE"></span>
+    <span>Próximo paso</span>
+  </div>
+  <h2 style="margin:48px 0 0;font-family:var(--font-heading);font-weight:500;font-size:116px;line-height:1.02;letter-spacing:-0.035em;max-width:1400px;text-wrap:balance">Cada interesado, calificado y entregado.</h2>
+  <p style="margin:40px 0 0;font-size:40px;line-height:1.3;color:#94A3B8">Implementado sobre WhatsApp Business Cloud API y n8n.</p>
+  <div style="margin-top:72px;display:flex">
+    <a class="btn btn-primary" href="#" style="font-size:32px;padding:24px 40px;gap:16px;border-radius:10px;box-shadow:0 0 28px rgba(34,211,238,0.25)"><i class="ph ph-calendar-check"></i><span>Agendar diagnóstico</span></a>
+  </div>
+  <div style="position:absolute;left:120px;right:120px;bottom:52px;display:flex;align-items:center;justify-content:space-between;font-size:24px;color:#94A3B8">
+    <span style="display:flex;align-items:center;gap:14px"><span style="width:44px;height:44px;border-radius:9px;border:1.5px solid #E3A81B;background:#14161C;display:flex;align-items:center;justify-content:center;font-family:var(--font-heading);font-weight:700;font-size:24px;color:#F2B824">N</span><span style="font-family:var(--font-heading);font-weight:600;font-size:30px;letter-spacing:-0.02em;color:#D9DCE3">Nuvora</span></span>
+    <div style="display:flex;align-items:center;gap:28px">
+      <div style="display:flex;align-items:center;gap:6px">
+        <button data-goto="0" aria-label="Ir a diapositiva 1" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="1" aria-label="Ir a diapositiva 2" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="2" aria-label="Ir a diapositiva 3" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="3" aria-label="Ir a diapositiva 4" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="4" aria-label="Ir a diapositiva 5" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="5" aria-label="Ir a diapositiva 6" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:8px;height:8px;border-radius:4px;background:rgba(232,237,245,0.25)"></span></button>
+        <button data-goto="6" aria-label="Ir a diapositiva 7" style="all:unset;cursor:pointer;padding:8px 4px;display:flex"><span style="width:32px;height:8px;border-radius:4px;background:#22D3EE"></span></button>
+      </div>
+      <span style="font-variant-numeric:normal">07 / 07</span>
+    </div>
+  </div>
+</section>
+
+</x-import>
+</x-dc>
+<script type="text/x-dc" data-dc-script data-props="{&quot;autoplayChat&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Demo del agente&quot;},&quot;chatSpeed&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Lenta&quot;,&quot;Normal&quot;,&quot;Rápida&quot;],&quot;default&quot;:&quot;Normal&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Demo del agente&quot;},&quot;leadOrigin&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Meta&quot;,&quot;Web&quot;],&quot;default&quot;:&quot;Meta&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ficha de lead&quot;}}">
+class Component extends DCLogic {
+  state = { station: 0, count: 12, typing: false, slide: 0, playing: false };
+  timers = [];
+
+  componentDidMount() {
+    this.onKey = (e) => {
+      if (this.state.slide !== 2) return;
+      const t = e.composedPath ? e.composedPath()[0] : e.target;
+      if (t && (t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable)) return;
+      const s = this.state.station;
+      let n = null;
+      if (e.key === 'ArrowRight' && s < 4) n = s + 1;
+      if (e.key === 'ArrowLeft' && s > 0) n = s - 1;
+      if (n === null) return;
+      e.preventDefault(); e.stopImmediatePropagation();
+      this.setState({ station: n });
+    };
+    window.addEventListener('keydown', this.onKey, true);
+    this.onSlide = (e) => this.enterSlide(e.detail.index);
+    document.addEventListener('slidechange', this.onSlide);
+    this.onDot = (e) => {
+      const d = e.target.closest && e.target.closest('[data-goto]');
+      if (!d) return;
+      const deck = document.querySelector('deck-stage');
+      if (deck && deck.goTo) deck.goTo(+d.dataset.goto);
+    };
+    document.addEventListener('click', this.onDot);
+    this.onPrint = () => { this.stop(); this.setState({ count: 12, typing: false }); };
+    window.addEventListener('beforeprint', this.onPrint);
+    this.initT = setTimeout(() => {
+      const secs = Array.from(document.querySelectorAll('deck-stage > section'));
+      const i = secs.findIndex((s) => s.hasAttribute('data-deck-active'));
+      if (i >= 0) this.enterSlide(i);
+    }, 400);
+  }
+
+  componentWillUnmount() {
+    this.stop(); clearTimeout(this.initT);
+    window.removeEventListener('keydown', this.onKey, true);
+    document.removeEventListener('slidechange', this.onSlide);
+    document.removeEventListener('click', this.onDot);
+    window.removeEventListener('beforeprint', this.onPrint);
+  }
+
+  enterSlide(i) {
+    if (i === this.state.slide && (i !== 3 || this.state.playing)) return;
+    this.setState({ slide: i });
+    if (i === 3) {
+      if (this.props.autoplayChat ?? true) this.play();
+      else { this.stop(); this.setState({ count: 0, typing: false }); }
+    } else this.stop();
+  }
+
+  stop() { this.timers.forEach(clearTimeout); this.timers = []; if (this.state.playing) this.setState({ playing: false }); }
+
+  play() {
+    this.stop();
+    const sp = { 'Lenta': 1.5, 'Normal': 1, 'Rápida': 0.6 }[this.props.chatSpeed ?? 'Normal'] || 1;
+    this.setState({ count: 0, typing: false, playing: true });
+    const who = ['u', 'a', 'u', 'a', 'u', 'a', 'u', 'a', 'u', 'a', 'u', 'a'];
+    let t = 700 * sp;
+    who.forEach((w, i) => {
+      if (w === 'a') { this.timers.push(setTimeout(() => this.setState({ typing: true }), t)); t += 1500 * sp; }
+      this.timers.push(setTimeout(() => this.setState({ count: i + 1, typing: false, playing: i < who.length - 1 }), t));
+      t += (w === 'a' ? 1500 : 1000) * sp;
+    });
+  }
+
+  renderVals() {
+    const { station, count, typing, playing } = this.state;
+    const go = (n) => () => this.setState({ station: n });
+    const icon = (n) => n === 1 ? '#25D366' : '#22D3EE';
+    const st = (n) => n === station
+      ? { op: 1, bc: '#22D3EE', bg: '#0B2A36', ic: icon(n), glow: '0 0 28px rgba(34,211,238,0.35)' }
+      : { op: 0.4, bc: 'rgba(232,237,245,0.18)', bg: '#0B1220', ic: icon(n), glow: 'none' };
+    const need = count >= 1, urg = count >= 3, ch = count >= 5, bud = count >= 7, dec = count >= 9;
+    const filled = [need, urg, ch, bud, dec].filter(Boolean).length;
+    const win = typing ? 3 : 4;
+    const vis = (i) => count >= i && i > count - win;
+    const mut = '#64748B', on = '#67E8F9';
+    return {
+      progress: (Math.max(0, station - 1) / 3 * 60) + '%',
+      yStroke: station >= 1 ? '#22D3EE' : 'rgba(34,211,238,0.45)',
+      st0: st(0), st1: st(1), st2: st(2), st3: st(3), st4: st(4),
+      go0: go(0), go1: go(1), go2: go(2), go3: go(3), go4: go(4),
+      is0: station === 0, is1: station === 1, is2: station === 2, is3: station === 3, is4: station === 4,
+      prev: () => this.setState({ station: Math.max(0, station - 1) }),
+      next: () => this.setState({ station: Math.min(4, station + 1) }),
+      stationLabel: '0' + (station + 1) + ' / 05',
+      m1: vis(1), m2: vis(2), m3: vis(3), m4: vis(4), m5: vis(5), m6: vis(6), m7: vis(7), m8: vis(8), m9: vis(9), m10: vis(10), m11: vis(11), m12: vis(12),
+      typing,
+      status: typing ? 'escribiendo…' : 'en línea',
+      statusColor: typing ? '#22D3EE' : '#94A3B8',
+      slotNeed: need, slotNeedOff: !need, needVal: need ? 'Automatizar atención' : 'Pendiente', needColor: need ? on : mut,
+      slotUrg: urg, slotUrgOff: !urg, urgVal: urg ? 'Alta · se escapan mensajes' : 'Pendiente', urgColor: urg ? on : mut,
+      slotCh: ch, slotChOff: !ch, chVal: ch ? 'WhatsApp · fuera de horario' : 'Pendiente', chColor: ch ? on : mut,
+      slotBud: bud, slotBudOff: !bud, budVal: bud ? 'Sin rango definido · abierto a propuesta' : 'Pendiente', budColor: bud ? on : mut,
+      slotDec: dec, slotDecOff: !dec, decVal: dec ? 'Directora + socio' : 'Pendiente', decColor: dec ? on : mut,
+      slotCount: filled + ' / 5',
+      originMeta: (this.props.leadOrigin ?? 'Meta') === 'Meta', originWeb: (this.props.leadOrigin ?? 'Meta') === 'Web',
+      replay: () => this.play(),
+      replayLabel: playing ? 'Reiniciar' : (count === 0 ? 'Reproducir conversación' : 'Reproducir de nuevo'),
+    };
+  }
+}
+</script>
+<style>
+  #nv-nav{position:fixed;left:50%;bottom:14px;transform:translateX(-50%);display:flex;align-items:center;gap:6px;padding:6px 10px;background:rgba(17,26,44,.92);border:1px solid rgba(232,237,245,.14);border-radius:999px;z-index:2147483000;font-family:"Inter Tight","Plus Jakarta Sans",system-ui,sans-serif;color:#E8EDF5;box-shadow:0 8px 28px rgba(0,0,0,.45);-webkit-backdrop-filter:blur(8px);backdrop-filter:blur(8px)}
+  #nv-nav button{all:unset;box-sizing:border-box;width:36px;height:36px;display:flex;align-items:center;justify-content:center;border-radius:999px;cursor:pointer;font-size:24px;line-height:1;color:#E8EDF5}
+  #nv-nav button:hover{background:rgba(34,211,238,.16);color:#67E8F9}
+  #nv-nav button:disabled{opacity:.25;cursor:default;background:none;color:#94A3B8}
+  #nv-count{font-size:15px;letter-spacing:.04em;font-variant-numeric:normal;color:#94A3B8;min-width:60px;text-align:center}
+  @media print{#nv-nav{display:none!important}}
+</style>
+<script>
+(function () {
+  var doc = document;
+  var deck = null, idx = 0, total = 0;
+
+  function sections() { return doc.querySelectorAll('deck-stage > section'); }
+
+  function render() {
+    var c = doc.getElementById('nv-count');
+    if (!c) return;
+    c.textContent = (idx + 1) + ' / ' + total;
+    var p = doc.getElementById('nv-prev'), n = doc.getElementById('nv-next');
+    if (p) p.disabled = idx <= 0;
+    if (n) n.disabled = idx >= total - 1;
+    alignBar();
+  }
+
+  function go(i) {
+    if (!deck || !deck.goTo) return;
+    if (i < 0 || i > total - 1) return;
+    deck.goTo(i);
+  }
+
+  function alignBar() {
+    var bar = doc.getElementById('nv-nav');
+    if (!bar || !deck) return;
+    var sec = doc.querySelector('deck-stage > section[data-deck-active]') || doc.querySelector('deck-stage > section');
+    if (!sec) return;
+    var r = sec.getBoundingClientRect();
+    if (r.width) bar.style.left = (r.left + r.width / 2) + 'px';
+  }
+
+  function mount() {
+    if (doc.getElementById('nv-nav')) return;
+    if (deck && deck.shadowRoot) {
+      var ss = doc.createElement('style');
+      ss.textContent = '.overlay{display:none!important}';
+      deck.shadowRoot.appendChild(ss);
+    }
+    var bar = doc.createElement('div');
+    bar.id = 'nv-nav';
+    bar.innerHTML = '<button id="nv-prev" type="button" aria-label="Diapositiva anterior">&#8249;</button><span id="nv-count">1 / 7</span><button id="nv-next" type="button" aria-label="Diapositiva siguiente">&#8250;</button>';
+    doc.body.appendChild(bar);
+    doc.getElementById('nv-prev').addEventListener('click', function () { go(idx - 1); });
+    doc.getElementById('nv-next').addEventListener('click', function () { go(idx + 1); });
+    window.addEventListener('resize', function () { alignBar(); });
+    setTimeout(alignBar, 60);
+  }
+
+  function syncFromDom() {
+    var secs = sections();
+    total = secs.length || 7;
+    for (var i = 0; i < secs.length; i++) {
+      if (secs[i].hasAttribute('data-deck-active')) { idx = i; break; }
+    }
+    render();
+  }
+
+  var tries = 0;
+  var timer = setInterval(function () {
+    deck = doc.querySelector('deck-stage');
+    tries++;
+    if (deck && typeof deck.goTo === 'function' && sections().length) {
+      clearInterval(timer);
+      total = sections().length;
+      deck.addEventListener('slidechange', function (e) {
+        if (e && e.detail && typeof e.detail.index === 'number') { idx = e.detail.index; render(); }
+      });
+      mount();
+      syncFromDom();
+      try { window.dispatchEvent(new Event('resize')); } catch (e) {}
+      setTimeout(function () { try { window.dispatchEvent(new Event('resize')); } catch (e) {} }, 300);
+    } else if (tries > 120) {
+      clearInterval(timer);
+    }
+  }, 100);
+
+  window.addEventListener('keydown', function (e) {
+    if (e.key === 'ArrowRight' || e.key === 'ArrowLeft') {
+      setTimeout(syncFromDom, 60);
+    }
+  }, true);
+})();
+</script>
+</body>
+</html>

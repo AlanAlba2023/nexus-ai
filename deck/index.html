@@ -634,12 +634,15 @@ class Component extends DCLogic {
   #nv-nav button:hover{background:rgba(34,211,238,.16);color:#67E8F9}
   #nv-nav button:disabled{opacity:.25;cursor:default;background:none;color:#94A3B8}
   #nv-count{font-size:15px;letter-spacing:.04em;font-variant-numeric:normal;color:#94A3B8;min-width:60px;text-align:center}
-  @media print{#nv-nav{display:none!important}}
+  #nv-cta{position:fixed;left:50%;bottom:22px;transform:translateX(-50%);z-index:2147483000;display:inline-flex;align-items:center;gap:12px;padding:14px 30px;border-radius:999px;background:#22D3EE;color:#0B1220;font-family:"Inter Tight",system-ui,sans-serif;font-weight:600;font-size:17px;letter-spacing:.01em;text-decoration:none;box-shadow:0 10px 30px rgba(34,211,238,.32);transition:background .15s ease,transform .15s ease}
+  #nv-cta:hover{background:#67E8F9;color:#0B1220;transform:translateX(-50%) translateY(-2px)}
+  @media print{#nv-nav,#nv-cta{display:none!important}}
 </style>
 <script>
 (function () {
   var doc = document;
   var deck = null, idx = 0, total = 0;
+  var DEMO = /[?&]demo(=1)?(&|$)/.test(location.search);
 
   function sections() { return doc.querySelectorAll('deck-stage > section'); }
 
@@ -668,7 +671,27 @@ class Component extends DCLogic {
     if (r.width) bar.style.left = (r.left + r.width / 2) + 'px';
   }
 
+  function mountCta() {
+    if (doc.getElementById('nv-cta')) return;
+    var a = doc.createElement('a');
+    a.id = 'nv-cta';
+    a.href = 'https://wa.me/56933869881?text=Hola%20Nuvora%2C%20vi%20la%20demo%20y%20quiero%20algo%20as%C3%AD%20en%20mi%20negocio';
+    a.target = '_blank';
+    a.rel = 'noopener';
+    a.textContent = 'Quiero esto en mi negocio \u2192';
+    doc.body.appendChild(a);
+  }
+
   function mount() {
+    if (DEMO) {
+      if (deck && deck.shadowRoot) {
+        var sd = doc.createElement('style');
+        sd.textContent = '.overlay{display:none!important}';
+        deck.shadowRoot.appendChild(sd);
+      }
+      mountCta();
+      return;
+    }
     if (doc.getElementById('nv-nav')) return;
     if (deck && deck.shadowRoot) {
       var ss = doc.createElement('style');
@@ -701,6 +724,7 @@ class Component extends DCLogic {
     if (deck && typeof deck.goTo === 'function' && sections().length) {
       clearInterval(timer);
       total = sections().length;
+      if (DEMO) deck.setAttribute('no-rail', '');
       deck.addEventListener('slidechange', function (e) {
         if (e && e.detail && typeof e.detail.index === 'number') { idx = e.detail.index; render(); }
       });
@@ -718,6 +742,16 @@ class Component extends DCLogic {
       setTimeout(syncFromDom, 60);
     }
   }, true);
+
+  if (DEMO) {
+    var NAVKEYS = ['ArrowRight', 'ArrowLeft', 'ArrowUp', 'ArrowDown', 'PageUp', 'PageDown', ' ', 'Home', 'End'];
+    window.addEventListener('keydown', function (e) {
+      if (NAVKEYS.indexOf(e.key) >= 0) {
+        e.preventDefault();
+        e.stopImmediatePropagation();
+      }
+    }, true);
+  }
 })();
 </script>
 </body>

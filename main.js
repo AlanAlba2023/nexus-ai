@@ -350,7 +350,7 @@ function showToast(message, type = 'success') {
 
 // Demo Button
 document.getElementById('demoBtn').addEventListener('click', () => {
-    showToast('Demo interactiva - Próximamente disponible', 'info');
+    window.location.href = '/deck?demo=1#4';
 });
 
 // Scroll to Top

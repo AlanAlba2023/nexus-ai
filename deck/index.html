@@ -647,6 +647,7 @@ class Component extends DCLogic {
   function sections() { return doc.querySelectorAll('deck-stage > section'); }
 
   function render() {
+    if (DEMO) { updateCta(); return; }
     var c = doc.getElementById('nv-count');
     if (!c) return;
     c.textContent = (idx + 1) + ' / ' + total;
@@ -671,15 +672,33 @@ class Component extends DCLogic {
     if (r.width) bar.style.left = (r.left + r.width / 2) + 'px';
   }
 
+  var WA_URL = 'https://wa.me/56933869881?text=Hola%20Nuvora%2C%20vi%20la%20demo%20y%20quiero%20algo%20as%C3%AD%20en%20mi%20negocio';
+
+  function updateCta() {
+    var a = doc.getElementById('nv-cta');
+    if (!a) return;
+    var a2 = a;
+    if (idx === 3) {
+      a2.textContent = 'Ver c\u00f3mo funciona \u2192';
+      a2.removeAttribute('target');
+      a2.removeAttribute('rel');
+      a2.href = '#';
+      a2.onclick = function (e) { e.preventDefault(); go(2); };
+    } else {
+      a2.textContent = 'Quiero esto en mi negocio \u2192';
+      a2.href = WA_URL;
+      a2.target = '_blank';
+      a2.rel = 'noopener';
+      a2.onclick = null;
+    }
+  }
+
   function mountCta() {
     if (doc.getElementById('nv-cta')) return;
     var a = doc.createElement('a');
     a.id = 'nv-cta';
-    a.href = 'https://wa.me/56933869881?text=Hola%20Nuvora%2C%20vi%20la%20demo%20y%20quiero%20algo%20as%C3%AD%20en%20mi%20negocio';
-    a.target = '_blank';
-    a.rel = 'noopener';
-    a.textContent = 'Quiero esto en mi negocio \u2192';
     doc.body.appendChild(a);
+    updateCta();
   }
 
   function mount() {
@@ -689,6 +708,9 @@ class Component extends DCLogic {
         sd.textContent = '.overlay{display:none!important}';
         deck.shadowRoot.appendChild(sd);
       }
+      var st = doc.createElement('style');
+      st.textContent = '[data-goto]{display:none!important} div:has(> div > [data-goto]){display:none!important}';
+      doc.head.appendChild(st);
       mountCta();
       return;
     }
@@ -730,6 +752,7 @@ class Component extends DCLogic {
       });
       mount();
       syncFromDom();
+      if (DEMO && !location.hash) { setTimeout(function () { go(3); }, 120); }
       try { window.dispatchEvent(new Event('resize')); } catch (e) {}
       setTimeout(function () { try { window.dispatchEvent(new Event('resize')); } catch (e) {} }, 300);
     } else if (tries > 120) {

@@ -247,11 +247,15 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
   </div>
 </section>
 
-<section data-label="Demo del agente" data-screen-label="04 Demo del agente" data-speaker-notes="La conversación se reproduce sola al entrar. Mostrar cómo se llenan los slots en vivo." style="display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:120px;padding:96px 120px 140px;background:radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.07), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
+<section data-label="Demo del agente" data-screen-label="04 Demo del agente" data-speaker-notes="La conversación se reproduce sola al entrar. Elegí el rubro del prospecto en los chips (Clínica, Gimnasio, Inmobiliaria): cada uno trae su propio guion y su propia ficha. Mostrar cómo se llenan los slots en vivo." style="display:grid;grid-template-columns:minmax(0,1fr) 560px;gap:120px;padding:96px 120px 140px;background:radial-gradient(110% 80% at 85% -10%, rgba(34,211,238,0.07), transparent 60%), #0B1220;color:#E8EDF5;font-family:var(--font-body)">
   <div style="display:flex;flex-direction:column;min-width:0">
-    <div style="display:flex;align-items:center;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
-      <span style="width:44px;height:1px;background:#22D3EE"></span>
-      <span>Demo</span>
+    <div style="display:flex;align-items:center;justify-content:space-between;gap:20px;font-size:24px;letter-spacing:0.08em;text-transform:uppercase;color:#22D3EE">
+      <span style="display:flex;align-items:center;gap:20px"><span style="width:44px;height:1px;background:#22D3EE"></span><span>Demo</span></span>
+      <span style="display:flex;align-items:center;gap:10px">
+        <button onClick="{{ pick0 }}" aria-label="Ejemplo de clínica dental" style="all:unset;display:inline-flex;align-items:center;cursor:pointer;padding:10px 20px;border-radius:999px;border:1px solid {{ c0bd }};background:{{ c0bg }};color:{{ c0fg }};font-size:20px;letter-spacing:0.06em;transition:background .15s ease,color .15s ease,border-color .15s ease">Clínica</button>
+        <button onClick="{{ pick1 }}" aria-label="Ejemplo de gimnasio" style="all:unset;display:inline-flex;align-items:center;cursor:pointer;padding:10px 20px;border-radius:999px;border:1px solid {{ c1bd }};background:{{ c1bg }};color:{{ c1fg }};font-size:20px;letter-spacing:0.06em;transition:background .15s ease,color .15s ease,border-color .15s ease">Gimnasio</button>
+        <button onClick="{{ pick2 }}" aria-label="Ejemplo de inmobiliaria" style="all:unset;display:inline-flex;align-items:center;cursor:pointer;padding:10px 20px;border-radius:999px;border:1px solid {{ c2bd }};background:{{ c2bg }};color:{{ c2fg }};font-size:20px;letter-spacing:0.06em;transition:background .15s ease,color .15s ease,border-color .15s ease">Inmobiliaria</button>
+      </span>
     </div>
     <h2 style="margin:40px 0 0;font-family:var(--font-heading);font-weight:500;font-size:68px;line-height:1.1;letter-spacing:-0.03em">Así conversa el agente</h2>
     <div style="margin-top:40px;border:1px solid rgba(232,237,245,0.12);border-radius:14px;background:#111A2C;padding:32px 40px;display:flex;flex-direction:column;gap:8px">
@@ -304,40 +308,40 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
     </div>
     <div style="flex:1;min-height:0;display:flex;flex-direction:column;justify-content:flex-end;gap:16px;padding:24px 24px 20px;overflow:hidden">
       <sc-if value="{{ m1 }}" hint-placeholder-val="{{ false }}">
-        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Hola, vi la web. Quiero automatizar la atención de mi negocio.</div>
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t1 }}</div>
       </sc-if>
       <sc-if value="{{ m2 }}" hint-placeholder-val="{{ false }}">
-        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Buenísimo. ¿Qué tipo de negocio tienes y cuántos mensajes recibes al día?</div>
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t2 }}</div>
       </sc-if>
       <sc-if value="{{ m3 }}" hint-placeholder-val="{{ false }}">
-        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Una clínica dental, unos 40 al día. Se nos escapan varios.</div>
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t3 }}</div>
       </sc-if>
       <sc-if value="{{ m4 }}" hint-placeholder-val="{{ false }}">
-        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Eso es mucho volumen para responder a mano. ¿Hoy alguien contesta fuera de horario?</div>
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t4 }}</div>
       </sc-if>
       <sc-if value="{{ m5 }}" hint-placeholder-val="{{ false }}">
-        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">No, solo en horario de oficina.</div>
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t5 }}</div>
       </sc-if>
       <sc-if value="{{ m6 }}" hint-placeholder-val="{{ false }}">
-        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Ahí está la fuga. ¿Manejas un rango mensual para resolver esto o lo vemos después?</div>
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t6 }}</div>
       </sc-if>
       <sc-if value="{{ m7 }}" hint-placeholder-val="{{ false }}">
-        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Depende de lo que cueste. No tengo un número claro.</div>
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t7 }}</div>
       </sc-if>
       <sc-if value="{{ m8 }}" hint-placeholder-val="{{ true }}">
-        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Tranquilo, para eso hacemos la propuesta. ¿La decisión la tomas tú o hay alguien más?</div>
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t8 }}</div>
       </sc-if>
       <sc-if value="{{ m9 }}" hint-placeholder-val="{{ true }}">
-        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Con mi socio, pero yo veo el tema operativo.</div>
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t9 }}</div>
       </sc-if>
       <sc-if value="{{ m10 }}" hint-placeholder-val="{{ true }}">
-        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Perfecto. Con esto armo el diagnóstico y te envío una propuesta. ¿A qué correo te la mando?</div>
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t10 }}</div>
       </sc-if>
       <sc-if value="{{ m11 }}" hint-placeholder-val="{{ true }}">
-        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">carolina@sonrie.cl</div>
+        <div style="align-self:flex-end;max-width:90%;background:#134E5E;border-radius:20px 20px 6px 20px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t11 }}</div>
       </sc-if>
       <sc-if value="{{ m12 }}" hint-placeholder-val="{{ true }}">
-        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid #22D3EE;box-shadow:0 0 20px rgba(34,211,238,0.18);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">Listo, Carolina. Un ejecutivo te escribe en menos de 24 horas hábiles para coordinar la llamada.</div>
+        <div style="align-self:flex-start;max-width:90%;background:#1A2438;border:1px solid #22D3EE;box-shadow:0 0 20px rgba(34,211,238,0.18);border-radius:20px 20px 20px 6px;padding:12px 20px;font-size:24px;line-height:1.3;animation:nv-in .35s ease">{{ t12 }}</div>
       </sc-if>
       <sc-if value="{{ typing }}" hint-placeholder-val="{{ false }}">
         <div style="align-self:flex-start;background:#1A2438;border:1px solid rgba(232,237,245,0.08);border-radius:20px 20px 20px 6px;padding:22px 26px;display:flex;gap:8px;animation:nv-in .25s ease">
@@ -577,7 +581,60 @@ a { color: #22D3EE; } a:hover { color: #67E8F9; }
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;autoplayChat&quot;:{&quot;editor&quot;:&quot;boolean&quot;,&quot;default&quot;:true,&quot;tsType&quot;:&quot;boolean&quot;,&quot;section&quot;:&quot;Demo del agente&quot;},&quot;chatSpeed&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Lenta&quot;,&quot;Normal&quot;,&quot;Rápida&quot;],&quot;default&quot;:&quot;Normal&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Demo del agente&quot;},&quot;leadOrigin&quot;:{&quot;editor&quot;:&quot;enum&quot;,&quot;options&quot;:[&quot;Meta&quot;,&quot;Web&quot;],&quot;default&quot;:&quot;Meta&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Ficha de lead&quot;}}">
 class Component extends DCLogic {
-  state = { station: 0, count: 12, typing: false, slide: 0, playing: false };
+  state = { station: 0, count: 12, typing: false, slide: 0, playing: false, activeCase: 'dental' };
+  cases = {
+    dental: {
+      msgs: [
+        'Hola, vi la web. Quiero automatizar la atención de mi negocio.',
+        'Buenísimo. ¿Qué tipo de negocio tienes y cuántos mensajes recibes al día?',
+        'Una clínica dental, unos 40 al día. Se nos escapan varios.',
+        'Eso es mucho volumen para responder a mano. ¿Hoy alguien contesta fuera de horario?',
+        'No, solo en horario de oficina.',
+        'Ahí está la fuga. ¿Manejas un rango mensual para resolver esto o lo vemos después?',
+        'Depende de lo que cueste. No tengo un número claro.',
+        'Tranquilo, para eso hacemos la propuesta. ¿La decisión la tomas tú o hay alguien más?',
+        'Con mi socio, pero yo veo el tema operativo.',
+        'Perfecto. Con esto armo el diagnóstico y te envío una propuesta. ¿A qué correo te la mando?',
+        'carolina@sonrie.cl',
+        'Listo, Carolina. Un ejecutivo te escribe en menos de 24 horas hábiles para coordinar la llamada.',
+      ],
+      slots: ['Automatizar atención', 'Alta · se escapan mensajes', 'WhatsApp · fuera de horario', 'Sin rango definido · abierto a propuesta', 'Directora + socio'],
+    },
+    gimnasio: {
+      msgs: [
+        'Hola, vi la web. Quiero automatizar la atención de mi negocio.',
+        'Buenísimo. ¿Qué tipo de negocio tienes y cuántos mensajes recibes al día?',
+        'Un gimnasio, unos 60 al día entre precios, horarios y planes.',
+        'Sesenta mensajes con una sola persona en recepción. ¿Cuántas de esas consultas terminan en una visita?',
+        'No lo medimos. Muchas se enfrían.',
+        'Ahí está la fuga. ¿Manejas un rango mensual para resolver esto o lo vemos después?',
+        'Depende de lo que cueste. No tengo un número claro.',
+        'Tranquilo, para eso hacemos la propuesta. ¿La decisión la tomas tú o hay alguien más?',
+        'Somos dos dueños, pero la operación la llevo yo.',
+        'Perfecto. Con esto armo el diagnóstico y te envío una propuesta. ¿A qué correo te la mando?',
+        'rodrigo@powerhouse.cl',
+        'Listo, Rodrigo. Un ejecutivo te escribe en menos de 24 horas hábiles con el diagnóstico.',
+      ],
+      slots: ['Filtrar consultas de precio', 'No se mide la conversión', 'WhatsApp e Instagram', 'Sin rango · pide una propuesta', 'Dos socios · opera uno'],
+    },
+    inmobiliaria: {
+      msgs: [
+        'Hola, vi la web. Quiero automatizar la atención de mi negocio.',
+        'Buenísimo. ¿Qué tipo de negocio tienes y cuántos mensajes recibes al día?',
+        'Corretaje de propiedades, unos 50 al día. Casi todos preguntan por una casa y desaparecen.',
+        'Cincuenta consultas y ninguna filtrada. ¿Hoy quién descarta a los que solo miran?',
+        'Nadie. Se las paso todas al corredor.',
+        'Ahí está la fuga. ¿Manejas un rango mensual para resolver esto o lo vemos después?',
+        'Depende de lo que cueste. No tengo un número claro.',
+        'Tranquilo, para eso hacemos la propuesta. ¿La decisión la tomas tú o hay alguien más?',
+        'Con mi socia, pero las visitas las agendo yo.',
+        'Perfecto. Con esto armo el diagnóstico y te envío una propuesta. ¿A qué correo te la mando?',
+        'andrea@propiedadesnova.cl',
+        'Listo, Andrea. Un ejecutivo te escribe en menos de 24 horas hábiles para coordinar la visita.',
+      ],
+      slots: ['Filtrar y agendar visitas', 'Alta · se pierden leads', 'WhatsApp y portales', 'Sin rango · abierto a propuesta', 'Socia + corredor'],
+    },
+  };
   timers = [];
 
   componentDidMount() {
@@ -605,6 +662,8 @@ class Component extends DCLogic {
     document.addEventListener('click', this.onDot);
     this.onPrint = () => { this.stop(); this.setState({ count: 12, typing: false }); };
     window.addEventListener('beforeprint', this.onPrint);
+    const qp = new URLSearchParams(window.location.search).get('rubro');
+    if (qp && this.cases[qp]) this.setState({ activeCase: qp });
     this.initT = setTimeout(() => {
       const secs = Array.from(document.querySelectorAll('deck-stage > section'));
       const i = secs.findIndex((s) => s.hasAttribute('data-deck-active'));
@@ -631,6 +690,12 @@ class Component extends DCLogic {
 
   stop() { this.timers.forEach(clearTimeout); this.timers = []; if (this.state.playing) this.setState({ playing: false }); }
 
+  pickCase(k) {
+    if (!this.cases[k]) return;
+    this.setState({ activeCase: k });
+    this.play();
+  }
+
   play() {
     this.stop();
     const sp = { 'Lenta': 1.5, 'Normal': 1, 'Rápida': 0.6 }[this.props.chatSpeed ?? 'Normal'] || 1;
@@ -645,7 +710,13 @@ class Component extends DCLogic {
   }
 
   renderVals() {
-    const { station, count, typing, playing } = this.state;
+    const { station, count, typing, playing, activeCase } = this.state;
+    const c = this.cases[activeCase] || this.cases.dental;
+    const T = c.msgs, S = c.slots;
+    const chip = (k) => activeCase === k
+      ? { bg: '#22D3EE', fg: '#0B1220', bd: '#22D3EE' }
+      : { bg: 'rgba(232,237,245,0.04)', fg: '#E8EDF5', bd: 'rgba(232,237,245,0.22)' };
+    const ch0 = chip('dental'), ch1 = chip('gimnasio'), ch2 = chip('inmobiliaria');
     const go = (n) => () => this.setState({ station: n });
     const icon = (n) => n === 1 ? '#25D366' : '#22D3EE';
     const st = (n) => n === station
@@ -666,14 +737,19 @@ class Component extends DCLogic {
       next: () => this.setState({ station: Math.min(4, station + 1) }),
       stationLabel: '0' + (station + 1) + ' / 05',
       m1: vis(1), m2: vis(2), m3: vis(3), m4: vis(4), m5: vis(5), m6: vis(6), m7: vis(7), m8: vis(8), m9: vis(9), m10: vis(10), m11: vis(11), m12: vis(12),
+      t1: T[0], t2: T[1], t3: T[2], t4: T[3], t5: T[4], t6: T[5], t7: T[6], t8: T[7], t9: T[8], t10: T[9], t11: T[10], t12: T[11],
+      c0bg: ch0.bg, c0fg: ch0.fg, c0bd: ch0.bd,
+      c1bg: ch1.bg, c1fg: ch1.fg, c1bd: ch1.bd,
+      c2bg: ch2.bg, c2fg: ch2.fg, c2bd: ch2.bd,
+      pick0: () => this.pickCase('dental'), pick1: () => this.pickCase('gimnasio'), pick2: () => this.pickCase('inmobiliaria'),
       typing,
       status: typing ? 'escribiendo…' : 'en línea',
       statusColor: typing ? '#22D3EE' : '#94A3B8',
-      slotNeed: need, slotNeedOff: !need, needVal: need ? 'Automatizar atención' : 'Pendiente', needColor: need ? on : mut,
-      slotUrg: urg, slotUrgOff: !urg, urgVal: urg ? 'Alta · se escapan mensajes' : 'Pendiente', urgColor: urg ? on : mut,
-      slotCh: ch, slotChOff: !ch, chVal: ch ? 'WhatsApp · fuera de horario' : 'Pendiente', chColor: ch ? on : mut,
-      slotBud: bud, slotBudOff: !bud, budVal: bud ? 'Sin rango definido · abierto a propuesta' : 'Pendiente', budColor: bud ? on : mut,
-      slotDec: dec, slotDecOff: !dec, decVal: dec ? 'Directora + socio' : 'Pendiente', decColor: dec ? on : mut,
+      slotNeed: need, slotNeedOff: !need, needVal: need ? S[0] : 'Pendiente', needColor: need ? on : mut,
+      slotUrg: urg, slotUrgOff: !urg, urgVal: urg ? S[1] : 'Pendiente', urgColor: urg ? on : mut,
+      slotCh: ch, slotChOff: !ch, chVal: ch ? S[2] : 'Pendiente', chColor: ch ? on : mut,
+      slotBud: bud, slotBudOff: !bud, budVal: bud ? S[3] : 'Pendiente', budColor: bud ? on : mut,
+      slotDec: dec, slotDecOff: !dec, decVal: dec ? S[4] : 'Pendiente', decColor: dec ? on : mut,
       slotCount: filled + ' / 5',
       originMeta: (this.props.leadOrigin ?? 'Meta') === 'Meta', originWeb: (this.props.leadOrigin ?? 'Meta') === 'Web',
       replay: () => this.play(),

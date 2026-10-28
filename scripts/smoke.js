@@ -104,6 +104,155 @@ function dumpDom(chrome, url) {
   });
 }
 
+// The demo copy lives inside the x-dc script as data, so "does this case render"
+// has to be asked of the rendered markup only, never of the raw document.
+function visibleText(html) {
+  return html.replace(/<script[\s\S]*?<\/script>/gi, '').replace(/<style[\s\S]*?<\/style>/gi, '');
+}
+
+// Drives a real click on the demo chips. dump-dom cannot click, and the whole
+// point of the chip row is that clicking swaps the conversation, so this runs
+// over the DevTools protocol with the WebSocket built into modern Node.
+async function clickChips(chrome, base) {
+  const { spawn } = require('child_process');
+  if (typeof WebSocket !== 'function') return null;
+
+  const sleep = (ms) => new Promise((r) => setTimeout(r, ms));
+  const userDir = fs.mkdtempSync(path.join(os.tmpdir(), 'smoke-cdp-'));
+  const proc = spawn(
+    chrome,
+    [
+      '--headless=new',
+      '--disable-gpu',
+      '--no-first-run',
+      '--no-sandbox',
+      `--user-data-dir=${userDir}`,
+      '--remote-debugging-port=0',
+      'about:blank',
+    ],
+    { stdio: 'ignore' }
+  );
+
+  let ws;
+  try {
+    const portFile = path.join(userDir, 'DevToolsActivePort');
+    let port = 0;
+    for (let i = 0; i < 120; i++) {
+      if (fs.existsSync(portFile)) {
+        const line = fs.readFileSync(portFile, 'utf8').split('\n')[0].trim();
+        if (line) {
+          port = Number(line);
+          if (port) break;
+        }
+      }
+      await sleep(100);
+    }
+    if (!port) throw new Error('CDP port not found');
+
+    let target = null;
+    for (let i = 0; i < 80; i++) {
+      try {
+        const list = await (await fetch(`http://127.0.0.1:${port}/json/list`)).json();
+        target = list.find((t) => t.type === 'page' && t.webSocketDebuggerUrl);
+        if (target) break;
+      } catch {}
+      await sleep(100);
+    }
+    if (!target) throw new Error('CDP page target not found');
+
+    ws = new WebSocket(target.webSocketDebuggerUrl);
+    let nextId = 0;
+    const pending = new Map();
+    ws.onmessage = (ev) => {
+      const msg = JSON.parse(ev.data);
+      const p = msg.id && pending.get(msg.id);
+      if (!p) return;
+      pending.delete(msg.id);
+      msg.error ? p.reject(new Error(JSON.stringify(msg.error))) : p.resolve(msg.result);
+    };
+    await new Promise((res, rej) => {
+      ws.onopen = res;
+      ws.onerror = () => rej(new Error('CDP socket failed'));
+    });
+    const send = (method, params = {}) =>
+      new Promise((resolve, reject) => {
+        const id = ++nextId;
+        pending.set(id, { resolve, reject });
+        ws.send(JSON.stringify({ id, method, params }));
+        setTimeout(() => {
+          if (pending.has(id)) {
+            pending.delete(id);
+            reject(new Error('CDP timeout: ' + method));
+          }
+        }, 20000);
+      });
+    const evaluate = async (expression) => {
+      const r = await send('Runtime.evaluate', { expression, returnByValue: true, awaitPromise: true });
+      if (r.exceptionDetails) throw new Error('evaluate failed: ' + (r.exceptionDetails.text || '') + ' ' + JSON.stringify(r.exceptionDetails.exception && r.exceptionDetails.exception.description || ''));
+      return r.result && r.result.value;
+    };
+
+    await send('Page.enable');
+    await send('Runtime.enable');
+    await send('Page.navigate', { url: `${base}/deck/` });
+    await sleep(3000);
+    const entered = await evaluate(`(() => {
+      const d = document.querySelector('deck-stage');
+      if (!d || !d.goTo) return 'no-deck-stage';
+      d.goTo(3);
+      return 'ok';
+    })()`);
+    await sleep(2000);
+    if (entered !== 'ok') throw new Error('deck did not navigate: ' + entered);
+
+    const read = `(() => {
+      const s = document.querySelectorAll('deck-stage > section')[3];
+      const t = s ? s.textContent : '';
+      return {
+        dentalSlot: t.includes('Automatizar atención'),
+        gymSlot: t.includes('Filtrar consultas de precio'),
+        inmobSlot: t.includes('Filtrar y agendar visitas'),
+      };
+    })()`;
+    const clickChip = (label) => `(() => {
+      const s = document.querySelectorAll('deck-stage > section')[3] || document;
+      const chip = Array.from(s.querySelectorAll('button')).find(b => b.textContent.trim() === ${JSON.stringify(label)});
+      if (!chip) return 'chip-not-found';
+      chip.click();
+      return 'ok';
+    })()`;
+
+    const out = [];
+    const before = await evaluate(read);
+    // Autoplay restarts the conversation on entry, so no slot is guaranteed to be
+    // filled yet. What matters here is that it never opens on another vertical.
+    out.push({ name: 'chips: demo opens on the dental case', ok: !!before && !before.gymSlot && !before.inmobSlot, detail: JSON.stringify(before) });
+
+    const steps = [
+      ['Gimnasio', 'gymSlot', 'chips: clicking Gimnasio swaps the slots'],
+      ['Inmobiliaria', 'inmobSlot', 'chips: clicking Inmobiliaria swaps the slots'],
+      ['Clínica', 'dentalSlot', 'chips: clicking Clínica returns to the dental case'],
+    ];
+    for (const [label, flag, name] of steps) {
+      const clicked = await evaluate(clickChip(label));
+      await sleep(2500);
+      const state = await evaluate(read);
+      const active = state ? [state.dentalSlot, state.gymSlot, state.inmobSlot].filter(Boolean).length : 0;
+      out.push({ name, ok: clicked === 'ok' && active === 1 && state[flag] === true, detail: JSON.stringify({ clicked, state }) });
+    }
+    return out;
+  } finally {
+    try {
+      ws && ws.close();
+    } catch {}
+    try {
+      proc.kill();
+    } catch {}
+    await new Promise((r) => setTimeout(r, 200));
+    fs.rmSync(userDir, { recursive: true, force: true });
+  }
+}
+
 const results = [];
 function check(name, ok, detail) {
   results.push({ name, ok, detail });
@@ -150,6 +299,56 @@ async function main() {
   check('demo mounts the CTA', demo.includes('nv-cta'));
   check('demo does not mount the pager pill', !demo.includes('id="nv-nav"'));
   check('demo renders the agent chat', demo.includes('As\u00ed conversa el agente'));
+
+  // --- 5. demo copy: one script per vertical, selected by URL
+  const CHIPS = ['Cl\u00ednica', 'Gimnasio', 'Inmobiliaria'];
+  const dentalDom = visibleText(await dumpDom(chrome, `${base}/deck/index.html`));
+  check(
+    'demo defaults to the dental case',
+    dentalDom.includes('Listo, Carolina.') && dentalDom.includes('Directora + socio')
+  );
+  check(
+    'demo default hides the other cases',
+    !dentalDom.includes('Listo, Rodrigo.') && !dentalDom.includes('Listo, Andrea.')
+  );
+  check(
+    'demo renders the three vertical chips',
+    CHIPS.every((c) => dentalDom.includes('>' + c + '<')),
+    CHIPS.filter((c) => !dentalDom.includes('>' + c + '<')).join(', ')
+  );
+
+  const gymDom = visibleText(await dumpDom(chrome, `${base}/deck/index.html?rubro=gimnasio`));
+  check(
+    '?rubro=gimnasio switches the script',
+    gymDom.includes('Listo, Rodrigo.') && !gymDom.includes('Listo, Carolina.')
+  );
+  check(
+    '?rubro=gimnasio switches the lead slots',
+    gymDom.includes('Filtrar consultas de precio') && gymDom.includes('Dos socios \u00b7 opera uno')
+  );
+
+  const inmobDom = visibleText(await dumpDom(chrome, `${base}/deck/index.html?rubro=inmobiliaria`));
+  check(
+    '?rubro=inmobiliaria switches the script',
+    inmobDom.includes('Listo, Andrea.') && !inmobDom.includes('Listo, Carolina.')
+  );
+  check('?rubro=inmobiliaria switches the lead slots', inmobDom.includes('Filtrar y agendar visitas'));
+
+  const unknownDom = visibleText(await dumpDom(chrome, `${base}/deck/index.html?rubro=panaderia`));
+  check('an unknown rubro falls back to the dental case', unknownDom.includes('Listo, Carolina.'));
+
+  // --- 6. the chips must actually respond to a click, not just to the URL
+  let clicked = null;
+  try {
+    clicked = await clickChips(chrome, base);
+  } catch (err) {
+    check('chips respond to a click', false, err.message);
+  }
+  if (clicked === null) {
+    check('chips respond to a click', true, 'skipped: this Node has no global WebSocket');
+  } else {
+    for (const r of clicked) check(r.name, r.ok, r.detail);
+  }
 
   server.close();
 
